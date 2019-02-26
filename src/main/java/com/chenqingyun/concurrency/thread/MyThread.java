@@ -1,4 +1,4 @@
-package com.chenqingyun.thread.api;
+package com.chenqingyun.concurrency.thread;
 
 /**
  * @author chenqingyun
