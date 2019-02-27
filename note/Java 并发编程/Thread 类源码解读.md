@@ -5,7 +5,7 @@
 
 
 
-Thread 类位于 java.lang 包，实现 Runnable 接口。
+Thread 类是 Java 平台对线程的实现，位于 java.lang 包，实现 Runnable 接口。
 
 
 ## Thread 的属性
