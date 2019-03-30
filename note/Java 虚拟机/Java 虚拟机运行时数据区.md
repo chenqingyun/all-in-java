@@ -4,7 +4,7 @@
 
 Java 虚拟机定义了几种程序运行期间会使用到的运行时数据区（Runtime Data Areas），有些随着虚拟机启动而创建，随着虚拟机退出而销毁，这些区域是线程共享的；有些则与线程一一对应，随着线程的启动和结束而建立和销毁，这些区域是线程私有的。根据 Oracle 官方的 *The Java Virtual Machine Specification, Java SE 8 Edition* 中的规定，Java 虚拟机所管理的内存包括以下几个运行时数据区，如图所示：
 
-![](https://upload-images.jianshu.io/upload_images/3297676-a984b0bd6be1c835.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![image.png](https://upload-images.jianshu.io/upload_images/3297676-a984b0bd6be1c835.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 在 Java 虚拟机中，程序计数寄存器、Java 虚拟机栈、本地方法栈这些区域是线程私有的，堆、方法区是线程共享的。
 
