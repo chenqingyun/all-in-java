@@ -106,6 +106,8 @@ TODO
 
 当方法区无法满足内存分配需求时，会抛出 OutOfMemoryError 异常。
 
+> HotSpot 虚拟机从 jdk 8 开始取消了永久代（Permanent Generation）（永久代是 HotSpot 虚拟机对方法区的实现），引入了元空间（MetaSpace）。元空间并不在虚拟机中，而是使用本地内存。
+
 
 
 ## 运行时常量池
