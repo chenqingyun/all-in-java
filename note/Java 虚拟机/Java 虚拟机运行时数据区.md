@@ -103,7 +103,7 @@ TODO
 
 当方法区无法满足内存分配需求时，会抛出 OutOfMemoryError 异常。
 
-> HotSpot 虚拟机从 jdk 8 开始取消了永久代（Permanent Generation）（永久代是 HotSpot 虚拟机对方法区的实现），引入了元空间（MetaSpace）。元空间并不在虚拟机中，而是使用本地内存。
+> HotSpot 虚拟机从 JDK 8 开始取消了永久代（Permanent Generation）（永久代是 HotSpot 虚拟机对方法区的实现），引入了元空间（MetaSpace）。元空间并不在虚拟机中，而是使用本地内存。
 
 
 
@@ -139,7 +139,10 @@ TODO
 
 - 除了程序计数器不会发生 OutOfMemoryError ，其他内存区域都会发生此异常。
 
-  
+
+
+
+![image.png](https://upload-images.jianshu.io/upload_images/3297676-1b4196f9a8678d5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ## 参考
 
