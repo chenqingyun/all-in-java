@@ -1,6 +1,6 @@
 # Java  虚拟机运行时数据区
 
-[TOC]
+
 
 Java 虚拟机定义了几种程序运行期间会使用到的运行时数据区（Runtime Data Areas），有些随着虚拟机启动而创建，随着虚拟机退出而销毁，这些区域是线程共享的；有些则与线程一一对应，随着线程的启动和结束而建立和销毁，这些区域是线程私有的。根据 Oracle 官方的 *The Java Virtual Machine Specification, Java SE 8 Edition* 中的规定，Java 虚拟机所管理的内存包括以下几个运行时数据区，如图所示：
 
