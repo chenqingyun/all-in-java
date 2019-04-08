@@ -2,7 +2,10 @@ package com.chenqingyun.algorithm.search;
 
 /**
  * 二分查找法
- * 时间复杂度：O(logn)
+ * 最坏时间复杂度：O(log n)
+ * 最优时间复杂度：O(1)
+ * 平均时间复杂度：O(log n)
+ * 最坏空间复杂度	循环： O(1)   递归： O(log n)
  *
  * @author chenqingyun
  * @date 2019-04-09 04:13.
@@ -10,7 +13,7 @@ package com.chenqingyun.algorithm.search;
 public class BinarySearch {
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 6, 7, 9, 10};
-        System.out.println(binarySearch(array,9));
+        System.out.println(binarySearch(array, 9));
         System.out.println(binarySeatchWihtRecursion(array, 0, 0, array.length - 1));
     }
 
@@ -28,7 +31,9 @@ public class BinarySearch {
         int lowIndex = 0;
         int highIndex = array.length - 1;
         while (lowIndex <= highIndex) {
-            int midIndex = (lowIndex + highIndex) / 2;
+            //int midIndex = (lowIndex + highIndex) / 2;
+            // 防止算术溢出
+            int midIndex = lowIndex + (highIndex - lowIndex) / 2;
             if (array[midIndex] > target) {
                 highIndex = midIndex - 1;
             } else if (array[midIndex] < target) {
@@ -53,7 +58,7 @@ public class BinarySearch {
         if (lowIndex > highIndex) {
             return -1;
         }
-        int midIndex = (lowIndex + highIndex) / 2;
+        int midIndex = lowIndex + (highIndex - lowIndex) / 2;
         int value = array[midIndex];
         if (value == target) {
             return midIndex;
