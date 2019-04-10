@@ -2,6 +2,7 @@ package com.chenqingyun.algorithm.search;
 
 /**
  * 二分查找法
+ *
  * 最坏时间复杂度：O(log n)
  * 最优时间复杂度：O(1)
  * 平均时间复杂度：O(log n)
