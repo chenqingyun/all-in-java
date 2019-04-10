@@ -63,7 +63,7 @@ Java 虚拟机栈（Java Virtual Machine Stack）描述的是 Java 方法执行�
 - **StackOverflowError**：栈溢出。如果线程请求的栈深度大于虚拟机所允许的最大栈深度，将会抛出该异常。
 - **OutOfMemoryError**：内存溢出。如果线程在申请内存时，虚拟机分配给线程的内存大小无法再分配足够的内存，或者在创建新的线程时没有足够的内存去创建对应的虚拟机栈时，就会抛出此异常。
 
-> 更多详情可见：[StackOverflowError 详解](<https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/StackOverflowError.md>)，[OutOfMemoryError 详解]()
+
 
 **如何设定容量大小？**
 
@@ -130,17 +130,7 @@ JDK 8 之后，通过参数``-XX:MetaspaceSize`` 和 ``-XX:MaxMetaspaceSize`` �
 
 class 文件中除了有类的版本、字段、方法、接口等描述信息外，还有一项信息是常量池表，用于**存储编译期生成的各种字面量和符合引用**，这部分内容将在类加载后进入方法区的运行时常量池中存放。
 
-TODO
-
-[class 文件格式]()
-
-[常量池和运行时常量池]()
-
-
-
-在创建类或接口时，如果构造运行时常量池所需的内存空间时超过了方法区所能提供的最大值时，就抛出 OutOfMemoryError 异常。
-
-> 关于构造运行时常量池的详细信息，参考[类加载机制]()
+在创建类或接口时，如果构造运行时常量池所需的内存空间时超过了方法区所能提供的最大值时，就会抛出 OutOfMemoryError 异常。
 
 
 
@@ -164,3 +154,12 @@ TODO
 - *The Java Virtual Machine Specification, Java SE 8 Edition* . Oracle
 - 《深入理解 Java 虚拟机 第2版》周志明
 
+
+
+## 相关文章
+
+- [StackOverflowError 详解](<https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/StackOverflowError.md>)
+- [OutOfMemoryError 详解]()
+- [class 文件格式]()
+- [常量池和运行时常量池]()
+- [类加载机制]()
