@@ -63,15 +63,11 @@ Java 虚拟机栈（Java Virtual Machine Stack）描述的是 Java 方法执行�
 - **StackOverflowError**：栈溢出。如果线程请求的栈深度大于虚拟机所允许的最大栈深度，将会抛出该异常。
 - **OutOfMemoryError**：内存溢出。如果线程在申请内存时，虚拟机分配给线程的内存大小无法再分配足够的内存，或者在创建新的线程时没有足够的内存去创建对应的虚拟机栈时，就会抛出此异常。
 
-
+> 更多详情可见：[StackOverflowError 详解](<https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/StackOverflowError.md>)，[OutOfMemoryError 详解]()
 
 **如何设定容量大小？**
 
 可通过参数 ``-Xss``设置虚拟机栈的大小，如参数`` -Xss128k`` 表示设置虚拟机栈大小为 128k。
-
-[StackOverflowError 详解]()
-
-[OutOfMemoryError 详解]()
 
 
 
