@@ -91,7 +91,7 @@ Java 堆（Java Heap）是 Java 虚拟机所管理的内存区域中最大的一
 
 Java 堆是垃圾收集器主要管理区域，因此 Java 堆也被称为 **GC堆**（Garbage Collected Heap）。
 
-- 从内存回收的角度看，由于垃圾收集器基本上都采用分代收集算法，所以 Java 堆可以分为：新生代（Young）和老年代（Old），新生代可以细分为 Eden 空间、From Survivor 空间、To Survivor 空间等；
+- 从内存回收的角度看，由于垃圾收集器基本上都采用分代收集算法，所以 Java 堆可以分为：新生代（Young Generation）和老年代（Tenured Generation），新生代可以细分为 Eden 空间、From Survivor 空间、To Survivor 空间等；
 - 从内存分配的角度看，Java 堆可能划分为多个线程私有的分配缓存区。
 
 根据 Java 虚拟机规范的规定，Java 堆的容量可以是固定大小的，也可以随着程序执行的过程动态扩展，并且在不需要过多空间时自动收缩。
