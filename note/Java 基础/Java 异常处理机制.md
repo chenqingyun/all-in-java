@@ -27,4 +27,10 @@ try-catch-finally
 
 如果 try 语句块中有 return 语句，先执行 return 语句，但是返回值暂存，待 finally 代码块执行结束再返回值。如果 finally 代码块中也哟 return 语句，则 finally 代码块中的返回值会替换 try 语句块中的返回值。
 
+
+
+### 异常链
+
 ### 如何优雅的处理异常
+
+提早抛出，延迟捕获
