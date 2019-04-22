@@ -1,6 +1,10 @@
 # all in java
 
+## Java 基础
 
+- Java 异常处理机制
+
+  
 
 ## Java 并发编程
 
