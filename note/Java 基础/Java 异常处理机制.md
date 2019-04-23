@@ -12,7 +12,7 @@
 
 以下，Java 异常层次结构图，列举了常见的几种异常类：
 
-<div align="center"><img src="https://upload-images.jianshu.io/upload_images/3297676-fbb20e337e8a4def.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width= "500px"></div>
+<div align="center"><img src="https://upload-images.jianshu.io/upload_images/3297676-fbb20e337e8a4def.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width= "800px"></div>
 
 
 
