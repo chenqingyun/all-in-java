@@ -8,9 +8,11 @@
 
 ### Java 异常分类
 
-所有异常类都是继承至 Throwable 类
+所有异常类都是继承至 java.lang 包下的 Throwable 类。
 
-TODO Java 异常类层次结构图
+以下，Java 异常层次结构图，列举了常见的几种异常类：
+
+<div align="center"><img src="https://upload-images.jianshu.io/upload_images/3297676-fbb20e337e8a4def.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width= "500px"></div>
 
 
 
@@ -22,31 +24,85 @@ TODO Java 异常类层次结构图
 
 
 
-**Unchecked 异常**：派生于 Error 类和 RuntimeException 类的异常
+**UncheckedException**：派生于 Error 类和 RuntimeException 类的异常都是 UncheckedException。
 
-**Checked 异常**：其他异常。需要 try-catch 处理或 throws 抛出
+**CheckedException**：其他异常。需要 try-catch 处理或 throws 抛出。
 
 
 
 ### 异常处理
 
-使用 try-catch-finally 捕获处理异常，在方法内部使用 throw 语句将异常对象抛出。
+使用 `try-catch-finally` 捕获处理异常，在方法内部可以使用 throw 语句将异常对象抛出。
+
+代码示例：
+
+```java
+	public void exceptionTest() {
+        try {
+            // do something
+        } catch (RuntimeException e) {
+            // do something
+            throw new ExceptionA();
+        } finally {
+            // do something
+        }
+    }
+```
 
 
 
 在方法上使用 throws 关键字声明 Checked 异常，将异常向外抛出，表示此方法不处理异常，而交给方法调用方进行处理。
 
+代码示例：
+
+```java
+	public void exceptionTest() throws FileNotFoundException {
+        // do something
+    }
+```
+
 
 
 **finally 和 return 谁先执行？**
 
-try 语句块中含有 return 语句，是先执行 return 语句，只是 return 的结果被暂存，待 finally 代码块执行完了再将之前暂存的结果返回。如果 finally 子句中有 return 语句，那么 finally 子句的返回值会覆盖 try 里面的返回结果。
+try 语句块中含有 return 语句，是先执行 return 语句，只是 return 的结果被暂存，待 finally 代码块执行完了再将之前暂存的结果返回。如果 finally 子句中有 return 语句，那么 finally 子句的返回值会覆盖 try 里面的返回结果。可以写一段代码验证一下。
 
+```java 
+   public int exceptionTest() {
+        try {
+            return 2;
+        } catch (RuntimeException e) {
+            // do something
+            throw new ExceptionA();
+        } finally {
+            return 3;
+        }
+    }
+```
 
+以上返回值为 3。
 
 **再次抛出异常的推荐处理方式：异常链**
 
-### 
+代码示例：
+
+```java
+	public static void exceptionTest() {
+        try {
+            // do something
+        } catch (ExceptionA a) {
+            ExceptionB b = new ExceptionB("errorMessage");
+            b.initCause(a);
+            throw b;
+        }
+    }
+```
+
+建议使用这种包装技术，这样可以让用户抛出子系统中的异常， 而不会丢失原始异常的细节。
+
+> intCause 方法最多可以调用一次。 它通常从构造函数中调用，或者在创建 throwable 之后立即调用
+
+
 
 ### 如何优雅的处理异常
 
