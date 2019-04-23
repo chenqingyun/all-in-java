@@ -6,9 +6,9 @@ All In Java
 
 ## 目录
 
-- [Java 基础](#Java 基础)
-- [Java 并发编程](#Java 并发编程)
-- [Java 虚拟机](#Java 虚拟机)
+- [Java 基础](#Java基础)
+- [Java 并发编程](#Java并发编程)
+- [Java 虚拟机](#Java虚拟机)
 
 
 
