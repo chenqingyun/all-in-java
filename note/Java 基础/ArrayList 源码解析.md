@@ -10,9 +10,7 @@
 
 - [从 add 方法谈扩容机制](#从-add-方法谈扩容机制)
 
-- [各方法源码解读](#各方法源码解读)
-
-  - [元素的添加操作](#元素的添加操作)
+- [为什么线程不安全](#为什么线程不安全)
 
   
 
@@ -24,7 +22,9 @@ ArrayList 继承关系图：
 
 <div align="center"><img src="https://upload-images.jianshu.io/upload_images/3297676-c222aa2756dab872.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width= "600px"></div>
 
-todo
+TODO
+
+ArrayList 的特点是有序，元素可重复，可存储 null 元素，线程不安全。
 
 ## 属性
 
@@ -67,7 +67,7 @@ todo
 看下 ArrayList 无参构造函数源码：
 
 ```java
-		/**
+/**
      * Constructs an empty list with an initial capacity of ten.
      */
     public ArrayList() {
@@ -84,7 +84,7 @@ elementData 是 Object 类型的数组，可知 ArrayList 底层实现是数组�
 可以通过下面这个带参构造函数构造具有指定初始容量的空列表
 
 ```java
-		/**
+/**
      * Constructs an empty list with the specified initial capacity.
      *
      * @param  initialCapacity  the initial capacity of the list
@@ -119,7 +119,7 @@ ArrayList 方法有两个 add 方法。
 先来看下 add(E e) 方法源码：
 
 ```java
-   	/**
+/**
      * 将指定的元素追加到此列表的末尾
      */
     public boolean add(E e) {
@@ -165,7 +165,7 @@ ArrayList 方法有两个 add 方法。
 然后判断数组所需的容量是否大于当前数组的长度，如果大于表示要对数组进行扩容。调用 grow(int minCapacity) 方法对数组进行扩容 。
 
 ```java 
-		/**
+/**
      * Increases the capacity to ensure that it can hold at least the
      * number of elements specified by the minimum capacity argument.
      *
@@ -179,7 +179,7 @@ ArrayList 方法有两个 add 方法。
       	// 如果扩大 1.5 倍后还是小于所需容量，那么就用所需的最小容量作为新的容量
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;
-      	// 如果新的容量大于列表所允许的最大的容量时，就调用 hugeCapacity() 方法进行处理
+      	// 如果新的容量超过列表最大容量时，就调用 hugeCapacity() 方法进行处理
         if (newCapacity - MAX_ARRAY_SIZE > 0)
             newCapacity = hugeCapacity(minCapacity);
         // minCapacity is usually close to size, so this is a win:
@@ -199,7 +199,7 @@ ArrayList 方法有两个 add 方法。
 - 如果新的容量超过列表最大容量就调用 hugeCapacity() 方法进行处理。
 
   ```java
-  		/**
+  /**
        * The maximum size of array to allocate.
        * Some VMs reserve some header words in an array.
        * Attempts to allocate larger arrays may result in
@@ -210,14 +210,16 @@ ArrayList 方法有两个 add 方法。
       private static int hugeCapacity(int minCapacity) {
             if (minCapacity < 0) // overflow
                 throw new OutOfMemoryError();
-          // 如果大于列表的最大容量，就用 Integer.MAX_VALUE
+          // 如果超过列表的最大容量，就用 Integer.MAX_VALUE
             return (minCapacity > MAX_ARRAY_SIZE) ?
                 Integer.MAX_VALUE :
                 MAX_ARRAY_SIZE;
         }
   ```
 
-  虚拟机给列表分配的的最大容量为 Integer.MAX_VALUE - 8，为什么超过了可以使用 Integer.MAX_VALUE ？？？
+  > ArrayList 的最大容量是 Integer.MAX_VALUE - 8，一些虚拟机需要存储一些 header words 在数组中，需要预留一些空间出来。
+  >
+  > 虚拟机给列表分配的的最大容量为 Integer.MAX_VALUE - 8，为什么超过了最大容量可以到 Integer.MAX_VALUE ？？？
 
 - 最后调用 Arrays.copyOf 方法将原数组的内容拷贝到新扩容的数组。
 
@@ -226,52 +228,37 @@ ArrayList 方法有两个 add 方法。
 **对 add(E e) 方法以及扩容机制的总结：**
 
 - 先要确定数组的容量是否能够容纳下一个元素，然后再将元素追加到数组末尾。
-- 数组扩容的倍数是原数组大小的 1.5 倍。
-- ArrayLIst 实现扩容机制的核心方法是 grow(int minCapacity) 方法，依赖数组拷贝。
+- 如果所需容量超过当前数组长度，将进行扩容，数组扩容的倍数是原数组大小的 1.5 倍。
+- ArrayLIst 实现扩容机制的核心方法是 grow(int minCapacity) 方法，依赖 Arrays.copyOf 方法。
 - 如果列表是通过无参构造方法创建的，第一次调用 add 方法时，最小容量会设定为 10，最后通过 grow 方法去创建一个大小为 10 的数组。所以解释了通过无参构造函数创建列表时明明是空数组但初始化容量却为 10，这个其实是在第一次添加元素的时候创建了大小为 10 的数组。
 
 
 
-##各方法源码解读
+## 为什么线程不安全
 
-### 元素的添加操作
-
-ArrayList 的元素添加有 add(E e) 、 add(int index, E element) 、addAll(Collection<? extends E> c) 和 addAll(int index, Collection<? extends E> c) 方法。
-
-上面已经分析过 add(E e) 方法了，下面来分析其他三个方法。
-
-#### add(int index, E element) 方法
-
-add(int index, E element) 方法在列表中指定位置上插入元素，将当前位于该位置的元素（如果有）和任何后续元素（向其索引添加一个）向后移动。
+就拿 ArrayList 的 add 方法来说，首先看源码：
 
 ```java
-		/**
-     * Inserts the specified element at the specified position in this
-     * list. Shifts the element currently at that position (if any) and
-     * any subsequent elements to the right (adds one to their indices).
-     *
-     * @param index index at which the specified element is to be inserted
-     * @param element element to be inserted
-     * @throws IndexOutOfBoundsException {@inheritDoc}
-     */
-    public void add(int index, E element) {
-      	// 检查是否越界
-        rangeCheckForAdd(index);
-      	// 确定容量
-        ensureCapacityInternal(size + 1);  // Increments modCount!!、
-      	// 调用本地方法 arraycopy 将当前位于该位置的元素（如果有）和任何后续元素（向其索引添加一个）向后移动
-        System.arraycopy(elementData, index, elementData, index + 1,
-                         size - index);
-       // 在数组的指定位置上插入元素
-        elementData[index] = element;
-        size++;
+public boolean add(E e) {
+        ensureCapacityInternal(size + 1);  // Increments modCount!!
+        elementData[size++] = e;
+        return true;
     }
 ```
 
+其中 `elementData[size++] = e` 操作就不是原子操作，可以拆分为两步
 
+```java
+elementData[size] = e;
+size = size + 1;
+```
 
-#### addAll 方法
+非原子操作，在多线程环境下不加锁的情况下就会产生线程安全问题。
 
+如果有线程 A 和 B 同时调用 add 方法，此时 size =0 ，线程 A 在下标 0 的位置放置元素 a，还没执行到 `size = size + 1`	，线程 B 就执行到 `elementData[size] = e` 也在下标 0 的位置放置元素 b，这样线程 A 要插入到列表中的数据就被覆盖了，与实际需求不符。后面线程 A 和 B 又分别对 size 加 1，最后 size = 2，数组下标 1 的位置没有数据。
 
+另一方面，使用无参构造创建的列表初始数组容量为 10，如果此时 size = 9，线程 A 和 B 在执行 `ensureCapacityInternal(size + 1)` 都判断了不需要扩容，线程 A 先在下标 9 的位置上放置元素，并且进行 size 自增 1，等线程 B 再来放入元素时就是在下标 10 位置上放置了，因为数组没有扩容，最大下标为 9，所以线程 B 放入元素时会抛出 `ArrayIndexOutOfBoundsException` 异常。
 
-### 元素的删除操作
+所以，ArrayList 是线程不安全的。
+
+在 `java.util.concurrent` 包下提供了线程安全的`CopyOnWriteArrayList` 类，后续分析下这个类。（TODO）
