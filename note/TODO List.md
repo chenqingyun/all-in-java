@@ -22,5 +22,9 @@
 
 ## Java 基础
 
-- ArrayList 源码解析，还有要补充的
+- ArrayList 源码解析
+
+  - 继承关系分析
+
+  - 虚拟机给列表分配的的最大容量为 Integer.MAX_VALUE - 8，为什么超过了可以使用 Integer.MAX_VALUE 
 
