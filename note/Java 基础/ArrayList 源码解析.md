@@ -18,13 +18,25 @@
 
 ## 概要
 
-ArrayList 继承关系图：
+ArrayList 继承 AbstractList，实现 List、RandomAccess、Cloneable 和 Serializable
+
+```java
+public class ArrayList<E> extends AbstractList<E>
+        implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+```
+
+以下 ArrayList 继承关系图
 
 <div align="center"><img src="https://upload-images.jianshu.io/upload_images/3297676-c222aa2756dab872.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width= "600px"></div>
 
-TODO
+- 继承 AbstractList，实现 List：实现添加、删除、修改、遍历等功能。
+- 实现 RandomAccess 接口：提供了随机访问功能，也就是通过下标获取元素对象的功能，说明 ArrayList 拥有**随机快速访问**的能力。
+- 实现 Cloneable 接口：实现 clone 方法，说明 ArrayList 可以被克隆。
+- 实现 Serializable 接口：表示 ArrayList 支持序列化，能通过序列化去传输。
 
-ArrayList 的特点是有序，元素可重复，可存储 null 元素，线程不安全。
+
+
+**ArrayList 的特点是有序，元素可重复，可存储 null 元素，线程不安全（与 Vector 的区别）。**
 
 ## 属性
 
