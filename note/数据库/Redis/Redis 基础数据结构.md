@@ -4,9 +4,9 @@
 
 - [string](#string)
 - [list](#list)
-- hash
-- set
-- zset
+- [hash](#hash)
+- [set](#set)
+- [sorted set](#sorted-set)
 
 Redis 有五种基础数据结构：
 
@@ -14,79 +14,78 @@ Redis 有五种基础数据结构：
 - list (列表)
 - hash (散列)
 - set (集合)
-- zset (有序集合)
+- sorted set (有序集合)
 
-## string
+## [string](http://www.redis.cn/topics/data-types-intro.html#strings)
 
-内部表示是一个字符数组。Redis 的字符串是动态字符串，是可以修改的字符串。
-
-**键值对**
-
-**set** 命令设置键值对，**get** 命令获取值
-
-```
-set key value
-get key
-```
+内部表示是一个字符数组。Redis 的字符串是动态字符串，是可以修改的字符串。内部结构的实现类似于 Java 的 ArrayList。
 
 
 
-**批量键值对**
+**常用命令：**
 
-**mset** 命令批量设置键值对，**mget** 命令批量获取值。
+<img width="1215" alt="string 常用命令" src="https://user-images.githubusercontent.com/19634532/57011186-13090180-6c33-11e9-8b9d-8d57c1db1505.png">
 
-多个字符串进行批量读写，节省网络耗时开销。
+[更多命令]([http://www.redis.cn/commands/incr.html](http://www.redis.cn/commands/incr.html))
 
-```
-mset key1 value1 key2 value2 key3 value3 
-mget key1 key2 key3
-```
+**注意：**
 
-
-
-**设置过期时间**
-
-先设置键值，在设置过期时间
-
-**expire** 命令设置过期时间
-
-```
-set key value
-expire key seconds
-```
-
-一步到位，**setex** 命令设置键值对并设置过期时间。原子操作
-
-```
-setex key seconds value   // 等价于 set + expire 
-```
+- 字符串最大长度为 512MB。
+- value 自增范围：long 的最大值和最小值。
 
 
 
-**先检查在设置键值对**
+**常见用途：**
 
-命令：**setnx** 
-
-```
-setnx key value
-```
+- 缓存用户信息
+- 计数
 
 
 
-**计数**
+## [list](http://www.redis.cn/topics/data-types-intro.html#lists)
 
-如果 value 值是整数，可以进行自增操作。
+Redis 的 list 是基于 「Linked List 」实现的，相当于 Java 里的 LinkedList，它是链表而不是数组。
 
-自增是有范围的，范围在 long 的最大值和最小值之间。
+list 的插入和删除操作非常快，时间复杂度为 O(1)，但是利用索引访问元素的速度很慢，时间复杂度为 O(n)。
 
-命令：incr 自增 1，incrby 自增多少
-
-```
-incr key 
-incr key 5 // 自增 5
-```
+当列表中弹出最后一个元素，该数据结构会自动删除，内存被回收。
 
 
 
-## list
+**常用命令**：
 
+![image](https://user-images.githubusercontent.com/19634532/57014275-fc1ddb80-6c41-11e9-9c7d-210ca418e295.png)
+
+[更多命令](http://www.redis.cn/commands/blpop.html)
+
+
+
+**使用场景：**
+
+- 用于消息队列
+
+  队列是先进先出的数据结构，可以使用 「rpush 」命令和 「 lpop 」命令右进左出来实现队列。
+
+  > 右边进右边出来实现栈，这样的业务场景不多见。
+
+- 实现聊天系统。
+- 在评级系统中，比如社会化新闻网站 reddit.com，你可以把每个新提交的链接添加到一个 list，用 LRANGE 可简单的对结果分页。
+- 在博客引擎实现中，你可为每篇日志设置一个 list，在该 list 中推入博客评论，等等。
+
+
+
+**注意：**
+
+- lindex，lrange 命令执行时间复杂度为 O(n)，谨慎使用。
+
+
+
+## [hash](http://www.redis.cn/topics/data-types-intro.html#hashes)
+
+
+
+## set
+
+
+
+## sorted set
