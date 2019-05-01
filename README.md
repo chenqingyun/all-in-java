@@ -9,6 +9,11 @@ All In Java
 - [Java 基础](#java-基础)
 - [Java 并发编程](#java-并发编程)
 - [Java 虚拟机](#java-虚拟机)
+- [数据库](#数据库)
+  - [Redis](#redis)
+- [数据结构与算法](#数据结构与算法)
+  - [数据结构](#数据结构)
+  - [算法](#算法)
 
 
 
@@ -19,11 +24,11 @@ All In Java
 
   - [ArrayList 源码解读](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ArrayList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)
 
-  - HashMap 源码解读
+  - HashMap 源码解读(TODO)
 
 ## Java 并发编程
 
-- 多线程编程基础
+### 多线程编程基础
 
   - [多线程的实现](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0.md)
 
@@ -47,3 +52,24 @@ All In Java
   - [垃圾收集器](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8.md)
   
   - [内存分配与回收策略](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5.md)
+
+
+
+## 数据库
+
+### Redis
+
+- Redis 基础数据结构
+
+
+
+## 数据结构与算法
+
+### 数据结构
+
+### 算法
+
+- 时间复杂度
+
+
+
