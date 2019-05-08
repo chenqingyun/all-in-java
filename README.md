@@ -11,6 +11,7 @@ All In Java
 - [Java 虚拟机](#java-虚拟机)
 - [数据库](#数据库)
   - [Redis](#redis)
+  - [MySQL](#mysql)
 - [数据结构与算法](#数据结构与算法)
 
 
@@ -19,10 +20,11 @@ All In Java
 
 - [Java 异常处理机制](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/Java%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.md)
 - [Java 集合框架](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/Java%20%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0.md)
+- [ArrayList 源码解读](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ArrayList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)
+  
+- [HashMap 源码解读(TODO)](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/HashMap%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)
 
-  - [ArrayList 源码解读](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ArrayList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)
 
-  - [HashMap 源码解读(TODO)](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/HashMap%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)
 
 ## Java 并发编程
 
@@ -58,5 +60,8 @@ All In Java
 
 ## 数据结构与算法
 
+- [常见数据结构(TODO)]()
+
 - [时间复杂度](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6.md)
 
+ 
