@@ -9,6 +9,7 @@ All In Java
 - [Java 基础](#java-基础)
 - [Java 并发编程](#java-并发编程)
 - [Java 虚拟机](#java-虚拟机)
+- [设计模式](#设计模式)
 - [数据库](#数据库)
   - [Redis](#redis)
   - [MySQL](#mysql)
@@ -50,11 +51,16 @@ All In Java
 
 
 
+## 设计模式
+
+
+
 ## 数据库
 
 ### Redis
 
 - [Redis 基础数据结构](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+- [Redis 分布式锁的正确实现(TODO)]([https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%AE%9E%E7%8E%B0.md](https://github.com/chenqingyun/all-in-java/blob/master/note/数据库/Redis/Redis 分布式锁的正确实现.md))
 
 
 
