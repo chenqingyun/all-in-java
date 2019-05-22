@@ -17,7 +17,6 @@ All In Java
 
 ## Java 基础
 
-- [Static 关键字的 5 种用法](https://mp.weixin.qq.com/s?__biz=MzI3ODcxMzQzMw==&mid=2247488852&idx=2&sn=812067bdf0f0acf1cff83055200ada3d&chksm=eb539062dc241974b25fbb471526f838f9d076761e96dced2a943a21f42606a96866d29ae94d&scene=21#wechat_redirect)
 - [Java 异常处理机制](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/Java%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.md)
 - [Java 集合框架](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/Java%20%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0.md)
 - [ArrayList 源码解读](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ArrayList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)
@@ -56,8 +55,6 @@ All In Java
 ## 数据库
 
 ### Redis
-
-- [Redis闲谈（1）：构建知识图谱](https://juejin.im/post/5cce56cee51d453aa307c80e?utm_source=gold_browser_extension)
 
 - [Redis 基础数据结构](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
 - [Redis 分布式锁的正确实现(TODO)]([https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%AE%9E%E7%8E%B0.md](https://github.com/chenqingyun/all-in-java/blob/master/note/数据库/Redis/Redis 分布式锁的正确实现.md))
