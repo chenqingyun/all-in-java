@@ -40,9 +40,9 @@ All In Java
 
 ### Java 虚拟机
 
-- [JVM 运行时数据区](<https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.md#%E5%8F%82%E8%80%83>)
+- [JVM 运行时数据区](https://github.com/chenqingyun/all-in-java/blob/master/note/Java 虚拟机/Java 虚拟机运行时数据区.md#参考)
 - [StackOverflowError 详解](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/StackOverflowError.md)
-- [OutOfMemoryError 详解]([https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/OutOfMemoryError%20%E8%AF%A6%E8%A7%A3.md](https://github.com/chenqingyun/all-in-java/blob/master/note/Java 虚拟机/OutOfMemoryError 详解.md))
+- [OutOfMemoryError 详解](https://github.com/chenqingyun/all-in-java/blob/master/note/Java 虚拟机/OutOfMemoryError 详解.md)
 - [垃圾回收机制](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6.md)
 
 
@@ -56,13 +56,13 @@ All In Java
 ### Redis
 
 - [Redis 基础数据结构](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
-- [Redis 分布式锁的正确实现(TODO)](https://github.com/chenqingyun/all-in-java/blob/master/note/数据库/Redis/Redis 分布式锁的正确实现.md)
+- [Redis 分布式锁的正确实现 TODO](https://github.com/chenqingyun/all-in-java/blob/master/note/数据库/Redis/Redis 分布式锁的正确实现.md)
 
 
 
 ## 数据结构与算法
 
-- [常见数据结构(TODO)](#[https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E5%B8%B8%E8%A7%81%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md](https://github.com/chenqingyun/all-in-java/blob/master/note/数据结构与算法/常见数据结构.md))
+- [常见数据结构 TODO](https://github.com/chenqingyun/all-in-java/blob/master/note/数据结构与算法/常见数据结构.md)
 
 - [时间复杂度](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6.md)
 
