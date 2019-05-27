@@ -40,9 +40,9 @@ All In Java
 
 ### Java 虚拟机
 
-- [JVM 运行时数据区](https://github.com/chenqingyun/all-in-java/blob/master/note/Java 虚拟机/Java 虚拟机运行时数据区.md#参考)
+- [JVM 运行时数据区](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.md)
 - [StackOverflowError 详解](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/StackOverflowError.md)
-- [OutOfMemoryError 详解](https://github.com/chenqingyun/all-in-java/blob/master/note/Java 虚拟机/OutOfMemoryError 详解.md)
+- [OutOfMemoryError 详解](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/OutOfMemoryError%20%E8%AF%A6%E8%A7%A3.md)
 - [垃圾回收机制](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6.md)
 
 
@@ -56,7 +56,7 @@ All In Java
 ### Redis
 
 - [Redis 基础数据结构](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
-- [Redis 分布式锁的正确实现 TODO](https://github.com/chenqingyun/all-in-java/blob/master/note/数据库/Redis/Redis 分布式锁的正确实现.md)
+- [Redis 分布式锁的正确实现 TODO](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%AE%9E%E7%8E%B0.md)
 
 
 
