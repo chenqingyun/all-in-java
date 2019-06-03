@@ -100,3 +100,6 @@ Redis 事务的持久性依据 Reids 所使用的持久化模式。
 相关文章：
 
 [Redis 事务](http://redisdoc.com/topic/transaction.html)
+
+
+
