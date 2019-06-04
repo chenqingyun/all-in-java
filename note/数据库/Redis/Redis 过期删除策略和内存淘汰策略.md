@@ -99,6 +99,8 @@ Redis 提供了配置参数 「 maxmemory 」来限制内存大小。当前已�
 
 #### LRU 算法
 
+Least Recently Used ，最近最少使用。如果最近访问较少，那么将来访问次数也少。
+
 「 双向链表 + 字典 」实现 LRU 算法。
 
 Reids 使用的是一种近视LRU 算法，跟 LRU 算法有所不同。
