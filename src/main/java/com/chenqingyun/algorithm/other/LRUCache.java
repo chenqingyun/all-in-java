@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * @author chenqingyun
  * @date 2019-06-04
- *
+ * <p>
  * LRU 算法的 Java 实现，基于 HashMap + 双向链表
  */
 public class LRUCache {
@@ -33,6 +33,7 @@ public class LRUCache {
         tail.pre = head;
     }
 
+
     public void set(String key, Object value) {
         DoubleLinkedList node = cache.get(key);
         if (node == null) {
@@ -57,6 +58,15 @@ public class LRUCache {
             node.value = value;
             this.moveToHead(node);
         }
+    }
+
+    public Object get(String key) {
+        DoubleLinkedList node = cache.get(key);
+        if (node == null) {
+            throw new RuntimeException();
+        }
+        this.moveToHead(node);
+        return node.value;
     }
 
     private void moveToHead(DoubleLinkedList node) {
