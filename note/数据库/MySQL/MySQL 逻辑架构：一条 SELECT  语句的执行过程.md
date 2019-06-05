@@ -47,4 +47,4 @@ TODO：
 
 
 
-[MySQL 实战45讲 01.基础架构：一条SQL查询语句是如何执行的？]https://time.geekbang.org/column/article/68319
+[MySQL 实战45讲 01.基础架构：一条SQL查询语句是如何执行的？](https://time.geekbang.org/column/article/68319)
