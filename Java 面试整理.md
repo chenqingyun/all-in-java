@@ -46,10 +46,25 @@
   - 基于主键索引和普通索引的查询有什么区别？
   - 普通索引和唯一索引如何选择？
 - [锁](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E9%94%81.md)
-  - 全局锁、表级锁、行级锁
+- 全局锁、表级锁、行级锁
   - 如何安全地给小表加字段？
   - 死锁的处理策略
   - 如何解决由热点行更新导致的性能问题
+- [SQL 语句为什么变慢了？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/SQL%20%E8%AF%AD%E5%8F%A5%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%98%E6%85%A2%E4%BA%86.md)
+- [cont(*) 为什么慢？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/cont(*)%20%E4%B8%BA%E4%BB%80%E4%B9%88%E6%85%A2.md)
+  - cont(*) 的实现
+  - MySQL 对 cont(*) 做了什么优化？
+  - 如何提高计数效率？
+  - count(*)，count(id)，count(1)，count(字段) 的效率和区别
+
+
+
+TODO:
+
+- 高性能
+  - 查询优化
+  - 索引优化
+  - 库表结构优化
 
 
 
