@@ -114,4 +114,5 @@
 ## 系统架构
 
 - [谈谈对分布式事务的一点理解和解决方案](https://mp.weixin.qq.com/s/cBb2htYEs6awfuxrXJznzw)
+- [面试官们“爱不释手”的分布式系统架构到底是个什么鬼？](https://juejin.im/post/5d00ea3b6fb9a07eec59c332?utm_source=gold_browser_extension)
 
