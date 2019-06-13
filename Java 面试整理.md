@@ -57,14 +57,7 @@
   - 如何提高计数效率？
   - count(*)，count(id)，count(1)，count(字段) 的效率和区别
 - MySQL 如何保证主备一致？
-- 
-
-TODO:
-
-- 高性能
-  - 查询优化
-  - 索引优化
-  - 库表结构优化
+- [MySQL 性能优化](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%20%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96.md)
 
 
 
