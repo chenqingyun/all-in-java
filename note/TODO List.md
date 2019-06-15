@@ -31,7 +31,6 @@ TODO List
 ### Java 虚拟机
 
 - [Java 虚拟机运行时数据区](<https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.md#%E5%8F%82%E8%80%83>)
-- 完善图
 - [StackOverflowError 详解](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/StackOverflowError.md)
 - 虚拟机参数
 - class 文件格式

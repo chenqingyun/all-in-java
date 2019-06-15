@@ -2,12 +2,19 @@
 
 ## 目录
 
+- [并发编程](#并发编程)
 - [Java 虚拟机](#java-虚拟机)
 - [Redis](#redis)
 - [MySQL](#mysql)
 - [面经](#面经)
 
 
+
+## 并发编程
+
+- [线程的生命周期](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
+- Thread 的 run 方法和 start 方法有什么区别？
+- 什么是多线程上下文切换
 
 
 ## Java 虚拟机
