@@ -14,7 +14,12 @@
 
 - [线程的生命周期](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 - Thread 的 run 方法和 start 方法有什么区别？
-- 什么是多线程上下文切换
+- 线程中的 wait() 和 sleep() 方法有什么区别？
+- 什么是多线程上下文切换？如何引起？有哪些额外开销？如何减少额外开销？
+- 多线程之间如何进行通信？
+- violatile 关键字
+- Sychronized 关键字
+- 为什么要使用线程池？
 
 
 ## Java 虚拟机
