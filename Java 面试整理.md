@@ -10,16 +10,20 @@
 
 
 
-## 并发编程
+## Java 并发编程
 
 - [线程的生命周期](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 - Thread 的 run 方法和 start 方法有什么区别？
 - 线程中的 wait() 和 sleep() 方法有什么区别？
-- 什么是多线程上下文切换？如何引起？有哪些额外开销？如何减少额外开销？
+- [什么是多线程上下文切换？如何引起？有哪些额外开销？如何减少额外开销？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2.md#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%E5%AF%BC%E8%87%B4%E9%A2%9D%E5%A4%96%E7%9A%84%E5%BC%80%E9%94%80)
 - 多线程之间如何进行通信？
 - violatile 关键字
 - Sychronized 关键字
 - 为什么要使用线程池？
+
+
+
+
 
 
 ## Java 虚拟机
@@ -58,7 +62,7 @@
   - 基于主键索引和普通索引的查询有什么区别？
   - 普通索引和唯一索引如何选择？
 - [锁](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E9%94%81.md)
-- 全局锁、表级锁、行级锁
+- [全局锁、表级锁、行级锁](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E9%94%81.md#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%94%B1%E7%83%AD%E7%82%B9%E8%A1%8C%E6%9B%B4%E6%96%B0%E5%AF%BC%E8%87%B4%E7%9A%84%E6%80%A7%E8%83%BD%E9%97%AE%E9%A2%98)
   - 如何安全地给小表加字段？
   - 死锁的处理策略
   - 如何解决由热点行更新导致的性能问题
