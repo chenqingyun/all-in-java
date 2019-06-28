@@ -10,15 +10,20 @@
 
 
 
+## Java 基础
+
+
+
 ## Java 并发编程
 
+- 可见性、原子性、有序性。什么原因导致可见性原子性有序性问题？如何保证？
 - [线程的生命周期](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 - Thread 的 run 方法和 start 方法有什么区别？
 - 线程中的 wait() 和 sleep() 方法有什么区别？
 - [什么是多线程上下文切换？如何引起？有哪些额外开销？如何减少额外开销？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2.md#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%E5%AF%BC%E8%87%B4%E9%A2%9D%E5%A4%96%E7%9A%84%E5%BC%80%E9%94%80)
 - 多线程之间如何进行通信？
-- violatile 关键字
-- Sychronized 关键字
+- volatile 关键字
+- synchronized 的实现原理与应用
 - 为什么要使用线程池？
 
 
@@ -27,6 +32,12 @@
 
 
 ## Java 虚拟机
+
+- [Java 虚拟机运行时时数据区如何划分？都分别有哪些功能？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.md)
+- [Java 内存模型。谈谈 volatile 关键字。什么是 Happens-Before 规则？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md)
+
+- [垃圾回收机制](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6.md)
+- [类加载机制](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md)
 
 
 
@@ -38,6 +49,7 @@
 ## Redis
 
 - [Redis 为什么是单线程的？为什么高性能](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91.md)
+- [Redis分布式锁如何续期](https://juejin.im/post/5d122f516fb9a07ed911d08c?utm_source=gold_browser_extension#comment)
 
   
 
@@ -46,7 +58,11 @@
 
 相关文章：
 - [天下无难试之Redis面试题刁难大全](https://zhuanlan.zhihu.com/p/32540678)
+
+- [经典面试题：如何保证缓存与数据库的双写一致性？](https://mp.weixin.qq.com/s/SKXl_DXzDdHZFe5GAyMBzg)
+
 - [面试中关于Redis的问题看这篇就够了](https://juejin.im/post/5ad6e4066fb9a028d82c4b66#comment)
+
 - https://github.com/doocs/advanced-java?utm_source=gold_browser_extension#%E7%BC%93%E5%AD%98
 
 
@@ -77,6 +93,14 @@
 
 
 
+## Spring
+
+
+
+## MyBatis
+
+
+
 ## 分布式
 
 - [面试官们“爱不释手”的分布式系统架构到底是个什么鬼？](https://juejin.im/post/5d00ea3b6fb9a07eec59c332?utm_source=gold_browser_extension)
@@ -92,11 +116,11 @@
 - 如何基于dubbo进行服务治理、服务降级、失败重试以及超时重试？
 - dubbo服务接口的幂等性如何设计（比如不能重复扣款，不能重复生成订单，不能重复创建卡号）？
 - dubbo服务接口请求的顺序性如何保证？
-- 如何自己设计一个类似dubbo的rpc框架？
+- 如何自己设计一个类似 dubbo 的rpc框架？
 
 
 
-## 分布式架构后常见的要解决的技术问题
+## 分布式架构常见的要解决的技术问题
 
 - 分布式会话
 
@@ -116,7 +140,18 @@
 
 - 限流、熔断、降级等。
 
-  
+
+
+
+## Linux
+
+
+
+## 项目经验
+
+- [alibaba/canal 阿里巴巴 mysql 数据库 binlog 增量订阅&消费组件](https://www.cnblogs.com/niejunlei/p/10323085.html)
+
+
 
 ## 面经
 
