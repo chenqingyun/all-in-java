@@ -636,7 +636,7 @@ public class ThreadJoinDemo {
 
 ```java
 	/**
-     * 允许线程中断自己，否则会调用此线程的 checkAccess 方法检查权限，
+     * 允许线程中断自己，如果不是当前线程则会调用此线程的 checkAccess 方法检查权限，
      * 这可能会导致抛出 SecurityException 。
      *
      * 如果该线程因调用 Object 类的 wait 的方法，或者 join，sleep 方法而造成阻塞时，
