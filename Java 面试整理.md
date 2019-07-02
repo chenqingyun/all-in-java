@@ -2,7 +2,7 @@
 
 ## 目录
 
-- [并发编程](#并发编程)
+- [Java 并发编程](#java-并发编程)
 - [Java 虚拟机](#java-虚拟机)
 - [Redis](#redis)
 - [MySQL](#mysql)
@@ -25,8 +25,10 @@
 - [volatile 关键字有什么作用？如何保证可见性和有序性？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/volatile%20%E5%85%B3%E9%94%AE%E5%AD%97.md)
 - synchronized 的实现原理与应用
 - 为什么要使用线程池？
-- [什么是重入锁？如何实现的？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%87%8D%E5%85%A5%E9%94%81%EF%BC%9AReentrantLock.md)
 - [synchronized 和 Lock 比较](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E6%98%BE%E7%A4%BA%E9%94%81%EF%BC%9ALock.md#synchronized-%E5%92%8C-lock-%E7%9A%84%E6%AF%94%E8%BE%83)
+- [队列同步器 AQS 实现原理](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8%EF%BC%9AAbstractQueuedSynchronizer.md#%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90)
+- [什么是重入锁？如何实现的？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%87%8D%E5%85%A5%E9%94%81%EF%BC%9AReentrantLock.md)
+- 什么是读写锁？如何实现的？什么是锁降级？
 
 
 

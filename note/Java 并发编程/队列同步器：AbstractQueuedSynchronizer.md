@@ -31,6 +31,8 @@ private volatile int state;
 
 实现同步器的子类通常定义为自定义同步组件的静态内部类
 
+
+
 ### compareAndSetState 和 setState 的区别
 
 AbstractQueuedSynchronizer 提供了两个方法用以修改同步状态值，compareAndSetState 和 setState 方法：
@@ -56,8 +58,6 @@ AbstractQueuedSynchronizer 提供了两个方法用以修改同步状态值，co
 
 
 #### 独占式获取与释放
-
-
 
 ##### 锁获取
 

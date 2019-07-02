@@ -6,7 +6,7 @@
 - [显示锁的调度策略](#显示锁的调度策略)
 - [synchronized 和 Lock 的比较](#synchronized-和-lock-的比较)
 
-内部锁：synchronized 
+
 
 显示锁：java.util.concurrent.locks.Lock 接口的实例
 
