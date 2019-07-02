@@ -5,7 +5,6 @@
 
 - [ReentrantLock 如何实现锁的重入](#reentrantLock-如何实现锁的重入)
 - [公平与非公平获取锁的区别](#公平与非公平获取锁的区别)
-- [compareAndSetState 和 setState 的区别](#compareAndSetState-和-setState-的区别)
 
 
 
@@ -175,12 +174,5 @@ public final boolean hasQueuedPredecessors() {
 因此，需要等待前面的线程获取锁并释放锁之后才能继续获取锁。
 
 
-
-### compareAndSetState 和 setState 的区别
-
-在 nonfairTryAcquire 方法中修改状态值用到了compareAndSetState 和 setState 两个不同的方法，那么这两个方法有什么不同呢？
-
-- compareAndSetState 通常用于在获取到锁之前，尝试加锁时，对 state 进行修改，这种场景下，由于当前线程不是锁持有者，所以对 state 的修改是线程不安全的，也就是说可能存在多个线程都尝试修改 state，所以需要保证对 state 修改的原子性操作，即使用了unsafe 类的本地 CAS 方法；
-- state 方法通常用于当前正持有锁的线程对 state 变量进行修改，不存在竞争，是线程安全的，所以此处没必要用 CAS 保证原子性，修改的性能更重要。
 
 
