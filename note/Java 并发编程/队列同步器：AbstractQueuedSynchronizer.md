@@ -4,6 +4,7 @@
 
 - [compareAndSetState 和 setState 的区别](#compareAndSetState-和-setState-的区别)
 - [队列同步器的实现分析](#队列同步器的实现分析)
+- [CAS 实现原子操作有哪些问题](#cas-实现原子操作有哪些问题)
 
 
 
@@ -240,6 +241,29 @@ private void doAcquireShared(int arg) {
 该方法在释放成功后会唤醒后续等待的节点。
 
 它和独占式的区别在于 tryReleaseShared(int arg) 方法一般会通过循环或 CAS 来保证安全释放，因为释放锁的操作会来自多个线程。
+
+
+
+
+
+### CAS 实现原子操作有哪些问题
+
+**ABA 问题，循环时间长开销大，只能保证一个共享变量的原子操作**。
+
+- **ABA 问题**。CAS 在操作值的时候先检查有没有发生变化，如果没有发生变化则更新。如果一个值原来是 A，变成了 B，后来又变回了 A，那么 CAS  进行检查的时候会认为没有发生变化，但实际上却变化了。该问题解决思路是使用版本号，在变量前面追加版本号。java.util.concurrent.atomic 包中提供了**AtomicStampedReference** 类来解决 ABA 问题。这个类的 compareAndSet 方法比较当前引用是否等于预期引用，当前标注是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置成给定的更新值。
+
+  ```java
+  public boolean compareAndSet(V   expectedReference,
+                                   V   newReference,
+                                   int expectedStamp,
+                                   int newStamp)
+  ```
+
+  
+
+- **循环时间长开销大**。自旋 CAS 如果长时间不成功，会给 CPU 带来非常大的执行开销。
+
+- **只能保证一个共享变量的原子操作**。这个时候就是使用锁了。还有一个办法就是将多个共享变量合并为一个共享变量来操作。java.util.concurrent.atomic 包中提供了 **AtomicReference** 类保证引用对象之间的原子性，就可以把多个变量放在一个对象来进行 CAS 操作。
 
 
 

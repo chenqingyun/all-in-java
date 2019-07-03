@@ -30,9 +30,9 @@ All In Java
 - synchronized 的实现原理与应用
 - 为什么要使用线程池？
 - [synchronized 和 Lock 比较](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E6%98%BE%E7%A4%BA%E9%94%81%EF%BC%9ALock.md#synchronized-%E5%92%8C-lock-%E7%9A%84%E6%AF%94%E8%BE%83)
-- [队列同步器 AQS 实现原理](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8%EF%BC%9AAbstractQueuedSynchronizer.md#%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90)
+- [队列同步器 AQS 实现原理？CAS 实现原子操作有哪些问题？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8%EF%BC%9AAbstractQueuedSynchronizer.md#%E9%98%9F%E5%88%97%E5%90%8C%E6%AD%A5%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90)
 - [什么是重入锁？如何实现的？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%87%8D%E5%85%A5%E9%94%81%EF%BC%9AReentrantLock.md)
-- 什么是读写锁？如何实现的？什么是锁降级？
+- [什么是读写锁？如何实现的？什么是锁降级？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E8%AF%BB%E5%86%99%E9%94%81%EF%BC%9AReentrantReadWriteLock.md#reentrantReadWriteLock-%E7%9A%84%E7%89%B9%E6%80%A7)
 
 
 
@@ -109,26 +109,26 @@ All In Java
 
 
 
-## 分布式
+## 分布式系统
 
 - [面试官们“爱不释手”的分布式系统架构到底是个什么鬼？](https://juejin.im/post/5d00ea3b6fb9a07eec59c332?utm_source=gold_browser_extension)
 
 
 
-## Dubbo
+### 分布式服务框架：Dubbo
 
-- dubbo的工作原理？
-- dubbo支持的序列化协议？
-- dubbo的负载均衡和高可用策略？动态代理策略？
-- dubbo的SPI思想？
-- 如何基于dubbo进行服务治理、服务降级、失败重试以及超时重试？
-- dubbo服务接口的幂等性如何设计（比如不能重复扣款，不能重复生成订单，不能重复创建卡号）？
-- dubbo服务接口请求的顺序性如何保证？
-- 如何自己设计一个类似 dubbo 的rpc框架？
+- dubbo 的工作原理？注册中心挂了可以继续通信吗？
+- dubbo 支持哪些序列化协议？说一下 hessian 的数据结构？PB 知道吗？为什么 PB 的效率是最高的？
+- dubbo 的负载均衡和高可用策略？动态代理策略？
+- dubbo 的 SPI 思想是什么？
+- 如何基于 dubbo 进行服务治理、服务降级、失败重试以及超时重试？
+- dubbo 服务接口的幂等性如何设计（比如不能重复扣款，不能重复生成订单，不能重复创建卡号）？
+- dubbo 服务接口请求的顺序性如何保证？
+- 如何自己设计一个类似 dubbo 的 rpc 框架？
 
 
 
-## 分布式架构常见的要解决的技术问题
+### 分布式架构常见的要解决的技术问题
 
 - 分布式会话
 
