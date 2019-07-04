@@ -11,7 +11,6 @@
 集合框架中有两个基本接口：Collection 接口和 Map 接口
 
 <div align="center"><img src="https://upload-images.jianshu.io/upload_images/3297676-0d6aaa884eb86dc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width= "650px"></div>
-
 ## Collection
 
 集合类的基本接口是 Collection 接口
@@ -37,7 +36,7 @@ public interface Collection<E> extends Iterable<E>
 
 ### LinkedList
 
-- 底层数据结构是链表
+- 底层数据结构是双向链表
 - 查询慢，增删快
 - 不同步，线程不安全，效率高
 - 实现 Deque 接口，为 add、poll 提供先进先出队列操作，以及其他堆栈和双端队列操作
@@ -48,7 +47,7 @@ public interface Collection<E> extends Iterable<E>
 
 - 底层数据结构是数组
 - 查询快，增删慢
-- 不同步，线程不安全，效率高
+- 同步，线程安全，效率低
 
 
 
