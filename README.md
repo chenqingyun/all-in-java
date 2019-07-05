@@ -17,14 +17,13 @@ All In Java
 ## Java 基础
 
 - [介绍一下 ArrayList 和 LinkedList 的区别及实现原理](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/LinkedList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md#%E4%B8%8E-arraylist-%E7%9A%84%E6%AF%94%E8%BE%83)
-- HashMap 的 底层数据机构？get / put / values 方法实现过程？扩容机制？HashTable 和 HashMap的区别
-- hash碰撞怎么解决
+- HashMap 的 底层数结构？get / put / values 方法实现过程？扩容机制？HashTable 和 HashMap的区别？
+- hash 碰撞怎么解决
 - ConcurrentHashMap 数据结构？实现原理？与 HashMap 比较？
 - 谈谈一致 hash 算法？
 - String 类为什么是 final 的？
   
-
-- Java中的队列都有哪些，有什么区别。
+- Java 中的队列都有哪些，有什么区别。
 
 - Java8 的新特性
 
