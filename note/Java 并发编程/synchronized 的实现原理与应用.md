@@ -12,6 +12,12 @@ monitorenter 指令是在编译后插入到同步代码块开始的位置，moni
 
 
 
+同步方法是依靠方法修饰符上的 「 ACC_SYNCHRONIZED 」来实现的。无论哪种方式，其本质都是对一个对象的监视器 （monitor）进行获取，而这个获取过程是排他的，也就是同一时刻只有一个线程能获取到由 synchronized 所保护的监视器。
+
+没有获得监视器的线程将会被阻塞在同步块或同步方法的入口，进入同步队列，线程状态变为 BLOCKED 状态。当获得锁的线程释放了锁，则该释放操作唤醒阻塞在同步队列中的线程，使其重新尝试对监视器的获取。
+
+![image](https://user-images.githubusercontent.com/19634532/60752762-1d14fb00-9ffc-11e9-9ef8-6f74d1872598.png)
+
 ### 锁存在哪里？锁里面存储什么信息？
 
 Java 中的每一个对象都可以作为锁
@@ -48,6 +54,10 @@ JDK 1.6 之后，锁有 4 种状态，级别从高到底：**无锁状态、偏�
 | 轻量级锁 | 竞争的线程不会阻塞，提高了程序的响应速度                     | 如果始终得不到锁竞争的线程，使用自旋会消耗 CPU   | 追求响应时间，同步块执行速度非常快 |
 | 重量级锁 | 线程竞争不会使用自旋，不会消耗 CPU                           | 线程阻塞，响应时间慢                             | 追求吞吐量，同步块执行时间较长     |
 
-[聊聊并发（二）Java SE1.6中的Synchronized](http://ifeve.com/java-synchronized/)
 
-[JVM源码分析之synchronized实现](https://www.jianshu.com/p/c5058b6fe8e5)
+
+### 参考
+
+- 《 Java 并发编程的艺术》方腾飞 魏鹏 程晓玥 著
+- [聊聊并发（二）Java SE1.6中的Synchronized](http://ifeve.com/java-synchronized/)
+- [JVM源码分析之synchronized实现](https://www.jianshu.com/p/c5058b6fe8e5)

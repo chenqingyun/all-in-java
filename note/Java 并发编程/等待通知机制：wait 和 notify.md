@@ -19,7 +19,7 @@
 
 wait() 方法实际就是调用的 wait(0) 。
 
-当前线程必须持有该对象的监视器，才能调用 wait() 方法进入等待状态。
+当前线程必须持有该对象的监视器，才能调用 wait() 方法进入等待状态。所以调用 wait() 方法前要先加锁，如 synchronized。
 
 - 如果当前线程不是该对象监视器的所有者，将抛出 IllegalMonitorStateException 异常。
 
@@ -35,7 +35,9 @@ notify() 方法用以唤醒正在等待对象监视器的单个线程。如果�
 
 notifyAll() 方法唤醒正在等待对象监视器的所有线程。
 
-当前线程必须持有该对象的监视器，才能调用 notify() / notifyAll() 方法。如果当前线程不是该对象监视器的所有者，将抛出 IllegalMonitorStateException 异常。
+当前线程必须持有该对象的监视器，才能调用 notify() / notifyAll() 方法。所以调用 notify() / notifyAll() 方法前要先加锁。
+
+如果当前线程不是该对象监视器的所有者，将抛出 IllegalMonitorStateException 异常。
 
 当前线程调用对象的 notify() / notifyAll() 方法后，等待线程需要等到该线程释放该对象的锁之后，然后等待获得锁后才能从 wait() 方法返回。
 
@@ -51,7 +53,7 @@ notify() 方法将等待队列中的一个线程从等待队列中移到同步�
 
 总结：
 
-- wait()、notify()、notifyAll() 时需要先持有对象的锁。
+- 调用 wait()、notify()、notifyAll() 时必须先持有对象的锁。这也就是为什么调用 wait 和 notify 前要先加 synchronized。
 - 调用 wait() 方法后，线程状态由 RUNNABLE 变为 WAITING，并将当前线程放置到该对象的等待队列。
 - 当前线程调用对象的 notify() / notifyAll() 方法后，等待线程需要等到该线程释放该对象的锁之后，然后等待线程获得锁才能被唤醒。
 - notify() 方法将等待队列中的一个线程从等待队列中移到同步队列，notifyAll() 方法将等待队列中的所有线程移到同步队列。被移动的线程状态由 WAITING 状态变为 BLOCKED 状态。

@@ -6,6 +6,7 @@ All In Java
 
 ## 目录
 
+- [Java 基础](#java-基础)
 - [Java 并发编程](#java-并发编程)
 - [Java 虚拟机](#java-虚拟机)
 - [Redis](#redis)
@@ -73,7 +74,7 @@ All In Java
 
 - 如果我想获取子线程返回的结果的话改怎么做呢？ 
 
-- 多线程之间如何进行通信？wait 和notify ？
+- [多线程之间如何进行通信？wait 和notify ？wait 和 notify 为什么要加 synchronized？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%AD%89%E5%BE%85%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6%EF%BC%9Await%20%E5%92%8C%20notify.md)
 
 - [[译\]Java虚拟机是如何执行线程同步的](https://www.hollischuang.com/archives/1876)
 
@@ -83,8 +84,14 @@ All In Java
 
 - newFixedThreadPool 此种线程池如果线程数达到最大值后会怎么办，底层原理。
 
+- 如何让多个线程顺序执行
+
+- sleep 和 wait 的区别
+
   
 
+  
+  
   
 
 其他：
@@ -256,7 +263,7 @@ All In Java
 - [对分布式事务及两阶段提交、三阶段提交的理解](https://www.cnblogs.com/binyue/p/3678390.html)
 - 服务器雪崩是怎么造成的？之前有这样的经历吗？怎么防备？
 - 高并发架构的设计思路
-- session和cookie的区别和联系，session的生命周期，多个服务部署时session管理。
+- session 和 cookie 的区别和联系，session的生命周期，多个服务部署时session管理。
 - redis/zk节点宕机如何处理
 - 数据的垂直拆分水平拆分。
 
@@ -365,12 +372,6 @@ All In Java
 - 项目中有没有使用什么算法之类的? 有的话介绍一下 (算法介绍)	
 - 项目中有没有遇到其他的问题呢? （OOM ; 系统优化; 其他亮点)
 - 项目中用的中间件的理解(Dubbo、MQ、Redis、kafka、zk)
-
-
-
-## 其他
-
-- 你有什么职业规划？
 
 
 
