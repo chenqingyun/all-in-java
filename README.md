@@ -61,12 +61,7 @@ All In Java
 
 - 乐观锁和悲观锁？
 
-- 线程池，介绍主要的参数 (核心线程数  最大线程数)
-
-  1、当线程池中线程数量小于 corePoolSize 则创建线程，并处理请求
-          2、当线程池中线程数量大于等于 corePoolSize 时，则把请求放入 workQueue 中,随着线程池中的核心线程们不断执行任务，只要线程池中有空闲的核心线程，线程池就从 workQueue 中取任务并处理。
-          3、当 workQueue 已存满，放不下新任务时则新建非核心线程入池，并处理请求直到线程数目达到 maximumPoolSize（最大线程数量设置值）。
-          4、如果线程池中线程数大于 maximumPoolSize 则使用 RejectedExecutionHandler 来进行任务拒绝处理。
+- [线程池的创建，介绍主要的参数？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9AThreadPoolExecutor.md#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%88%9B%E5%BB%BA)
 
 - 线程池的调优策略？
 
@@ -81,8 +76,6 @@ All In Java
 - 多线程如何避免死锁
 
 - 同步的数据结构有哪些？例如 concurrentHashMap 的源码理解以及内部实现原理，为什么他是同步的且效率高？
-
-- newFixedThreadPool 此种线程池如果线程数达到最大值后会怎么办，底层原理。
 
 - 如何让多个线程顺序执行
 

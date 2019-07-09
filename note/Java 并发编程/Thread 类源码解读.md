@@ -9,6 +9,7 @@
 - [Thread 的方法](#thread-的方法)
   - [run() 方法](#run-方法)
   - [start() 方法](#start-方法)
+  - [join() 方法](#join-方法)
 - [Thread 废弃的方法](#thread-废弃的方法)
 
 
