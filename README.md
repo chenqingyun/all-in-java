@@ -63,7 +63,7 @@ All In Java
 
 - [什么场景下应该用线程池？线程池的工作流程？介绍主要的参数？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9AThreadPoolExecutor.md#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%88%9B%E5%BB%BA)
 
-- 线程池的调优策略？线程数的选择？线程池的最大线程数目根据什么确定？
+- [线程池的调优策略？线程数的选择？线程池的最大线程数目根据什么确定？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9AThreadPoolExecutor.md#%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E7%BA%BF%E7%A8%8B%E6%95%B0)
 
 - [多线程之间如何进行通信？wait 和notify ？wait 和 notify 为什么要加 synchronized？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%AD%89%E5%BE%85%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6%EF%BC%9Await%20%E5%92%8C%20notify.md)
 
@@ -80,16 +80,12 @@ All In Java
   
 
   
-  
-  
 
 其他：
 
 - [可见性、原子性、有序性。什么原因导致可见性原子性有序性问题？如何保证？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%8E%9F%E5%AD%90%E6%80%A7%E3%80%81%E5%8F%AF%E8%A7%81%E6%80%A7%E3%80%81%E6%9C%89%E5%BA%8F%E6%80%A7.md)
 
 - [Thread 的 run 方法和 start 方法有什么区别？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/Thread%20%E7%B1%BB%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB.md#run-%E6%96%B9%E6%B3%95)
-
-- 线程中的 wait() 和 sleep() 方法有什么区别？
 
 - [什么是多线程上下文切换？如何引起？有哪些额外开销？如何减少额外开销？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2.md#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%E5%AF%BC%E8%87%B4%E9%A2%9D%E5%A4%96%E7%9A%84%E5%BC%80%E9%94%80)
 
