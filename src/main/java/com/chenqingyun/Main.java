@@ -1,9 +1,6 @@
 package com.chenqingyun;
 
-import com.chenqingyun.designpattern.Singleton;
-import com.chenqingyun.designpattern.SingletonEnum;
-
-import java.lang.reflect.Constructor;
+import com.chenqingyun.designpattern.strategy.*;
 
 /**
  * @author chenqingyun
@@ -11,6 +8,17 @@ import java.lang.reflect.Constructor;
  */
 public class Main {
     public static void main(String[] args) {
-        SingletonEnum singleton = SingletonEnum.INSTANCE;
+        StrategyHandler handler = new StrategyHandler();
+        handler.setStrategy(new AddOperation());
+        handler.execute(1, 5);
+
+        handler.setStrategy(new SubstractOperation());
+        handler.execute(4, 2);
+
+        handler.setStrategy(new MultiplyOperation());
+        handler.execute(4, 4);
+
+        handler.setStrategy(new DivideOperation());
+        handler.execute(6, 2);
     }
 }

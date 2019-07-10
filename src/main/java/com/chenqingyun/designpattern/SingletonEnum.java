@@ -7,3 +7,4 @@ package com.chenqingyun.designpattern;
 public enum SingletonEnum {
     INSTANCE;
 }
+
