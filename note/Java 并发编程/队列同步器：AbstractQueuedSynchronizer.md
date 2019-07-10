@@ -156,7 +156,6 @@ acquireQueued(final Node node, int arg) 方法的实现：
 <div align="center"><img src="https://user-images.githubusercontent.com/19634532/60482316-8c6cb100-9cc3-11e9-832c-1b32f8ff335b.png" width= "500px"></div>
 
 
-
 ##### 锁释放
 
 在锁实例的 unlock() 方法的实现中，使用了同步器的 release( int arg ) 方法来释放锁，在释放之后会唤醒其后继节点，进而使后继节点重新尝试获取锁。
@@ -250,7 +249,7 @@ private void doAcquireShared(int arg) {
 
 **ABA 问题，循环时间长开销大，只能保证一个共享变量的原子操作**。
 
-- **ABA 问题**。CAS 在操作值的时候先检查有没有发生变化，如果没有发生变化则更新。如果一个值原来是 A，变成了 B，后来又变回了 A，那么 CAS  进行检查的时候会认为没有发生变化，但实际上却变化了。该问题解决思路是使用版本号，在变量前面追加版本号。java.util.concurrent.atomic 包中提供了**AtomicStampedReference** 类来解决 ABA 问题。这个类的 compareAndSet 方法比较当前引用是否等于预期引用，当前标注是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置成给定的更新值。
+- **ABA 问题**。CAS 在操作值的时候先检查有没有发生变化，如果没有发生变化则更新。如果一个值原来是 A，变成了 B，后来又变回了 A，那么 CAS  进行检查的时候会认为没有发生变化，但实际上却变化了。该问题解决思路是**使用版本号**，在变量前面追加版本号。java.util.concurrent.atomic 包中提供了**AtomicStampedReference** 类来解决 ABA 问题。这个类的 compareAndSet 方法比较当前引用是否等于预期引用，当前标注是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置成给定的更新值。
 
   ```java
   public boolean compareAndSet(V   expectedReference,

@@ -59,7 +59,7 @@ All In Java
 
 - [什么是重入锁？Reentrantlock 实现原理？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%87%8D%E5%85%A5%E9%94%81%EF%BC%9AReentrantLock.md)
 
-- 乐观锁和悲观锁？
+- [乐观锁和悲观锁？](https://www.cnblogs.com/exceptioneye/p/5373477.html)
 
 - [什么场景下应该用线程池？线程池的工作流程？介绍主要的参数？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9AThreadPoolExecutor.md#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%88%9B%E5%BB%BA)
 
@@ -67,13 +67,13 @@ All In Java
 
 - [多线程之间如何进行通信？wait 和notify ？wait 和 notify 为什么要加 synchronized？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%AD%89%E5%BE%85%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6%EF%BC%9Await%20%E5%92%8C%20notify.md)
 
-- [[译\]Java虚拟机是如何执行线程同步的](https://www.hollischuang.com/archives/1876)
+- [[译]Java虚拟机是如何执行线程同步的](https://www.hollischuang.com/archives/1876)
 
-- 多线程如何避免死锁
+- [多线程如何避免死锁](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%94%81%E6%80%BB%E7%BB%93.md)
 
 - 同步的数据结构有哪些？例如 concurrentHashMap 的源码理解以及内部实现原理，为什么他是同步的且效率高？
 
-- 如何让多个线程顺序执行
+- [如何让多个线程顺序执行](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%A6%82%E4%BD%95%E8%AE%A9%E5%A4%9A%E4%B8%AA%E7%BA%BF%E7%A8%8B%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C.md)
 
 - sleep 和 wait 的区别
 
