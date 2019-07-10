@@ -14,6 +14,7 @@
 - [扩容机制：resize() 方法](#扩容机制：resize()-方法)
 - [get 方法分析](#get-方法分析)
 - [负载因子的作用？为什么默认是 0.75？](#负载因子的作用为什么默认是-075)
+- [HashMap 与 HashTable 的区别](#hashmap-与-hashtable-的区别)
 
 
 
@@ -651,6 +652,15 @@ HashMap 通过 get(Object key) 方法获取指定 key 对应的值，源码如�
 对于 HashMap 来说，负载因子是一个很重要的参数，该参数反应了 HashMap 桶数组的使用情况（假设键值对节点均匀分布在桶数组中）。通过调节负载因子，可使 HashMap 时间和空间复杂度上有不同的表现。当我们调低负载因子时，HashMap 所能容纳的键值对数量变少。扩容时，重新将键值对存储新的桶数组里，键的键之间产生的碰撞会下降，链表长度变短。此时，HashMap 的增删改查等操作的效率将会变高，这里是典型的拿空间换时间。相反，如果增加负载因子（负载因子可以大于1），HashMap 所能容纳的键值对数量变多，空间利用率高，但碰撞率也高。这意味着链表长度变长，效率也随之降低，这种情况是拿时间换空间。至于负载因子怎么调节，这个看使用场景了。一般情况下，我们用默认值就可以了。
 
 
+
+### HashMap 与 HashTable 的区别
+
+- HashTable 所有方法都加了 synchronized 关键字，是线程安全的，HashMap 是线程不安全的。
+- HashMap 的初始容量为 16，HashTable 初始容量为 11，两者的填充因子默认都是 0.75。
+- HashMap 扩容为原来的 2 倍，HashTable 扩容为原来的 2 倍 + 1。
+- HashMap 中 key 和 value 都允许为 null，HashTable 的 key 和 value 都不能为 null。
+- HashTable 使用 Enumeration 遍历，HashMap 使用 Iterator 进行遍历。
+- 两者计算 hash 值不同，HashTable 计算一次 hash 值，HashMap 进行二次 hash。
 
 
 

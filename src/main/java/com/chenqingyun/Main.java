@@ -1,7 +1,9 @@
 package com.chenqingyun;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.chenqingyun.designpattern.Singleton;
+import com.chenqingyun.designpattern.SingletonEnum;
+
+import java.lang.reflect.Constructor;
 
 /**
  * @author chenqingyun
@@ -9,7 +11,6 @@ import java.util.Map;
  */
 public class Main {
     public static void main(String[] args) {
-        int cpuNumber = Runtime.getRuntime().availableProcessors();
-        System.out.println(cpuNumber);
+        SingletonEnum singleton = SingletonEnum.INSTANCE;
     }
 }

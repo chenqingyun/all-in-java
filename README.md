@@ -38,7 +38,7 @@ All In Java
 ## 设计模式
 
 - 对设计模式的看法和认知？有哪些设计模式？
-- 单例模式：饱汉、饿汉。以及饿汉中的延迟加载
+- [单例模式：懒汉、饿汉](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E5%88%97%E6%A8%A1%E5%BC%8F.md)
 - 工厂模式、装饰者模式、观察者模式等
 
   
@@ -75,7 +75,7 @@ All In Java
 
 - [如何让多个线程顺序执行](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%A6%82%E4%BD%95%E8%AE%A9%E5%A4%9A%E4%B8%AA%E7%BA%BF%E7%A8%8B%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C.md)
 
-- sleep 和 wait 的区别
+- [sleep 和 wait 的区别](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%AD%89%E5%BE%85%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6%EF%BC%9Await%20%E5%92%8C%20notify.md#waitsleep-%E5%92%8C-yield-%E7%9A%84%E5%8C%BA%E5%88%AB)
 
   
 
