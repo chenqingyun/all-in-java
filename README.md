@@ -37,7 +37,7 @@ All In Java
 
 ## 设计模式
 
-- 对设计模式的看法和认知？有哪些设计模式？
+- 在工作中遇到过哪些设计模式，是如何应用的？
 
 - [单例模式：懒汉、饿汉](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E5%88%97%E6%A8%A1%E5%BC%8F.md)
 
@@ -77,7 +77,7 @@ All In Java
 
 - [多线程如何避免死锁](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%94%81%E6%80%BB%E7%BB%93.md)
 
-- 同步的数据结构有哪些？例如 concurrentHashMap 的源码理解以及内部实现原理，为什么他是同步的且效率高？
+- 同步的数据结构有哪些？例如 ConcurrentHashMap 的源码理解以及内部实现原理，为什么他是同步的且效率高？
 
 - [如何让多个线程顺序执行](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%A6%82%E4%BD%95%E8%AE%A9%E5%A4%9A%E4%B8%AA%E7%BA%BF%E7%A8%8B%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C.md)
 
@@ -335,15 +335,15 @@ All In Java
 - 两个有序数组的合并排序
 - 一个数组的倒序
 - 计算一个正整数的正平方根
-- 说白了就是常见的那些查找排序算法
 - 数组和链表数据结构描述，各自的时间复杂度
 - 二叉树遍历
 - 快速排序
-- BTree相关的操作
-- 在工作中遇到过哪些设计模式，是如何应用的
+- BTree 相关的操作
 - hash算法的有哪几种，优缺点，使用场景
-- 什么是一致性hash
-- paxos算法
+- 什么是一致性hash 算法
+- paxos 算法
+
+
 
 
 ## Linux

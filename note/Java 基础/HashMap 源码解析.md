@@ -13,6 +13,7 @@
   - [红黑树链化过程](#红黑树链化过程)
 - [扩容机制：resize() 方法](#扩容机制：resize()-方法)
 - [get 方法分析](#get-方法分析)
+- [remove 方法](#remove-方法)
 - [负载因子的作用？为什么默认是 0.75？](#负载因子的作用为什么默认是-075)
 - [HashMap 与 HashTable 的区别](#hashmap-与-hashtable-的区别)
 
@@ -645,11 +646,112 @@ HashMap 通过 get(Object key) 方法获取指定 key 对应的值，源码如�
 
 
 
+### remove 方法
+
+```java
+    public V remove(Object key) {
+        Node<K,V> e;
+        return (e = removeNode(hash(key), key, null, false, true)) == null ?
+            null : e.value;
+    }
+
+    final Node<K,V> removeNode(int hash, Object key, Object value,
+                               boolean matchValue, boolean movable) {
+        Node<K,V>[] tab; Node<K,V> p; int n, index;
+        // 定位桶数组位置
+        if ((tab = table) != null && (n = tab.length) > 0 &&
+            (p = tab[index = (n - 1) & hash]) != null) {
+            Node<K,V> node = null, e; K k; V v;
+           // 如果键的值与链表第一个节点相等，则将 node 指向该节点
+            if (p.hash == hash &&
+                ((k = p.key) == key || (key != null && key.equals(k))))
+                node = p;
+            else if ((e = p.next) != null) {
+                // 如果是 TreeNode 类型，调用红黑树的查找逻辑定位待删除节点
+                if (p instanceof TreeNode)
+                    node = ((TreeNode<K,V>)p).getTreeNode(hash, key);
+                else {
+                    // 遍历链表，找到待删除节点
+                    do {
+                        if (e.hash == hash &&
+                            ((k = e.key) == key ||
+                             (key != null && key.equals(k)))) {
+                            node = e;
+                            break;
+                        }
+                        p = e;
+                    } while ((e = e.next) != null);
+                }
+            }
+            // 删除节点，并修复链表或红黑树
+            if (node != null && (!matchValue || (v = node.value) == value ||
+                                 (value != null && value.equals(v)))) {
+                if (node instanceof TreeNode)
+                    ((TreeNode<K,V>)node).removeTreeNode(this, tab, movable);
+                else if (node == p)
+                    tab[index] = node.next;
+                else
+                    p.next = node.next;
+                ++modCount;
+                --size;
+                afterNodeRemoval(node);
+                return node;
+            }
+        }
+        return null;
+    }
+```
+
+- 计算 hash 值，定位在桶数组中的位置；
+- 如果是红黑树节点，使用红黑树的方法找到节点；
+- 如果是链表节点，历链表并找到键值相等的节点；
+- 删除节点。
+
+
+
+
+
+### 遍历
+
+HashMap 的遍历，如果既需要 key 也需要 value，一般采用以下这种方式：
+
+```java
+for (Entry<String, String> entry : map.entrySet()) {
+	entry.getKey();
+	entry.getValue();
+}
+```
+
+
+
+如果只需要 key ，采用下面这种方式：
+
+```java
+for (String key : map.keySet()) {
+	// do something
+}
+```
+
+遍历 HashMap 一般都是对 HashMap 的 key 集合或 Entry 集合进行遍历。
+
 
 
 ### 负载因子的作用？为什么默认是 0.75？
 
 对于 HashMap 来说，负载因子是一个很重要的参数，该参数反应了 HashMap 桶数组的使用情况（假设键值对节点均匀分布在桶数组中）。通过调节负载因子，可使 HashMap 时间和空间复杂度上有不同的表现。当我们调低负载因子时，HashMap 所能容纳的键值对数量变少。扩容时，重新将键值对存储新的桶数组里，键的键之间产生的碰撞会下降，链表长度变短。此时，HashMap 的增删改查等操作的效率将会变高，这里是典型的拿空间换时间。相反，如果增加负载因子（负载因子可以大于1），HashMap 所能容纳的键值对数量变多，空间利用率高，但碰撞率也高。这意味着链表长度变长，效率也随之降低，这种情况是拿时间换空间。至于负载因子怎么调节，这个看使用场景了。一般情况下，我们用默认值就可以了。
+
+
+
+### 为什么 HashMap 线程不安全
+
+**hash 碰撞和扩容导致的**。
+
+HashMap 的底层存储结构是一个 Node 数组，一旦发生 hash 冲突的的时候，HashMap 采用拉链法解决碰撞冲突。
+
+线程不安全产生的问题：
+
+- 数据丢失：put 操作时，两个线程同时获得了某个节点， A 线程更新了该节点，然后 B也更新了该节点，这样 B 线程的操作会覆盖 A 线程的操作，造成数据丢失。
+- 数据重复：如果有两个线程同时发现自己都 key 不存在，而这两个线程的 key 实际是相同的，在向链表中写入的时候第一线程将 e 设置为了自己的 Entry，而第二个线程执行到了 e.next，此时拿到的是最后一个节点，依然会将自己持有是数据插入到链表中，这样就出现了数据重复。
 
 
 
@@ -661,6 +763,8 @@ HashMap 通过 get(Object key) 方法获取指定 key 对应的值，源码如�
 - HashMap 中 key 和 value 都允许为 null，HashTable 的 key 和 value 都不能为 null。
 - HashTable 使用 Enumeration 遍历，HashMap 使用 Iterator 进行遍历。
 - 两者计算 hash 值不同，HashTable 计算一次 hash 值，HashMap 进行二次 hash。
+
+
 
 
 
