@@ -38,8 +38,14 @@ All In Java
 ## 设计模式
 
 - 对设计模式的看法和认知？有哪些设计模式？
+
 - [单例模式：懒汉、饿汉](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E5%88%97%E6%A8%A1%E5%BC%8F.md)
-- 工厂模式、装饰者模式、观察者模式等
+
+- [策略模式：优化 if-else](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md)
+
+- [工厂模式](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.md)
+
+- 装饰者模式、观察者模式等
 
   
 
