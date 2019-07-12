@@ -19,7 +19,7 @@ All In Java
 
 - [介绍一下 ArrayList 和 LinkedList 的区别及实现原理](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/LinkedList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md#%E4%B8%8E-arraylist-%E7%9A%84%E6%AF%94%E8%BE%83)
 - [HashMap 的 底层数结构？get / put / values 方法实现过程？扩容机制？如何解决 hash 碰撞？HashTable 和 HashMap的区别？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/HashMap%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md#hashmap-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90)
-- ConcurrentHashMap 数据结构？实现原理？与 HashMap 比较？
+- [ConcurrentHashMap 数据结构？实现原理？与 HashMap 比较？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ConcurrentHashMap%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86.md)
 - 谈谈一致 hash 算法？
 - String 类为什么是 final 的？
   
@@ -27,7 +27,7 @@ All In Java
 
 - Java8 的新特性
 
-- Java数组和链表两种结构的操作效率，在哪些情况下(从开头开始，从结尾开始，从中间开始)，哪些操作(插入，查找，删除)的效率高
+- Java 数组和链表两种结构的操作效率，在哪些情况下(从开头开始，从结尾开始，从中间开始)，哪些操作(插入，查找，删除)的效率高
 
 - Collections.sort 底层排序方式？
 
@@ -76,8 +76,6 @@ All In Java
 - [[译]Java虚拟机是如何执行线程同步的](https://www.hollischuang.com/archives/1876)
 
 - [多线程如何避免死锁](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%94%81%E6%80%BB%E7%BB%93.md)
-
-- 同步的数据结构有哪些？例如 ConcurrentHashMap 的源码理解以及内部实现原理，为什么他是同步的且效率高？
 
 - [如何让多个线程顺序执行](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%A6%82%E4%BD%95%E8%AE%A9%E5%A4%9A%E4%B8%AA%E7%BA%BF%E7%A8%8B%E9%A1%BA%E5%BA%8F%E6%89%A7%E8%A1%8C.md)
 
