@@ -5,10 +5,9 @@
 - [什么是 IoC？](#什么是-ioc)
 - [什么是 Spring 容器？](什么是-spring-容器)
 - [IoC 实现原理](#ioc-实现原理)
-- [Bean 的生命周期](#bean-的生命周期)
 - [IoC 有什么好处？](ioc-有什么好处)
-
-
+- [Bean 的生命周期](#bean-的生命周期)
+- [Bean 的作用域](#bean-的作用域)
 
 
 
@@ -122,28 +121,42 @@ Spring 提供了几种 Bean 装配机制：
 ##### 基于注解的自动装配
 
 - 在 Java 类上添加注解，如 @Service、@Controller，@Component；
+
 - 在 Spring 配置文件中，声明 context 命名空间，指定要扫描的包；
+
 - 使用 @Autowried 进行自动注入。
+
+  > IoC 有三种注入方式：
+  >
+  > - 构造器注入：通过调用类的构造函数，将对象作为构造函数的参数传入。
+  > - setter 注入：通过调用 set 方法传入对象。
+  > - 接口注入：将调用类所有依赖注入的方法抽取到一个接口中，调用类通过实现该接口提供相应的注入方法。因为它需要被依赖的对象实现不必要的接口，带有侵入性。一般都不推荐这种方式。
+
+
+
+
+
+**内部实现：**
+
+整个过程在 AbstractApplicationContext 的 **refresh()** 方法中完成。
+
+1. ResourceLoader 从存储介质中加载 Spring 配置信息，并使用 Resource 表示这个配置文件的资源
+2. BeanDefinitionReader 读取 Resource 所指向的配置文件资源，然后解析配置文件。配置文件中每一个<bean> 解析成一个 BeanDefinition 对象，并保存到 BeanDefinitionRegistry 中；
+3. 容器扫描 BeanDefinitionRegistry 中的 BeanDefinition，使用反射机制自动识别出实现  BeanFactoryPostProcessor 接口的 Bean ，然后对 BeanDefinition 进行加工处理；
+4. 调用 InstantiationStrategy 进行 Bean 实例化的工作；
+5. 使用 BeanWrapper 以反射机制操作 Bean，完成 Bean 属性的注入工作；
+6. 利用容器中注册的 Bean 后处理器（实现 BeanPostProcessor 接口的Bean）对已经完成属性设置工作的 Bean 进行后续加工，直接装配出一个准备就绪的 Bean。
+7. 单例 Bean 缓存池：Spring 在 DefaultSingletonBeanRegistry 类中提供了一个用于缓存单实例 Bean 的缓存器，它是一个用 HashMap 实现的缓存器，单实例的 Bean 以 beanName 为键保存在这个HashMap 中。
 
 
 
 ![image](https://user-images.githubusercontent.com/19634532/61205279-33b90180-a722-11e9-9a01-f23ebf3c497a.png)
 
-
-
-原理？？？
-
-
-
-IoC 有三种注入方式：
-
-- 构造器注入：通过调用类的构造函数，将对象作为构造函数的参数传入。
-- setter 注入：通过调用 set 方法传入对象。
-- 接口注入：将调用类所有依赖注入的方法抽取到一个接口中，调用类通过实现该接口提供相应的注入方法。因为它需要被依赖的对象实现不必要的接口，带有侵入性。一般都不推荐这种方式。
+**总的，简单来说：加载 Spring 配置信息；然后解析配置文件，配置文件中每一个<bean> 解析成一个 BeanDefinition 对象，并保存到 Bean 定义注册表中；容器扫描注册表中的 BeanDefinition 对象并加工处理，然后实例化 Bean，通过反射机制完成 Bean 属性的注入工作，最后装配出准备就绪的 Bean 实例；将 Bean 实例放到 Spring 容器中提供的一个 HashMap 实现的 Bean 的缓存器，以 beanName 为键保存在这个HashMap 中。**
 
 
 
-
+[Spring IOC原理总结](https://zhuanlan.zhihu.com/p/29344811?utm_source=wechat_session&utm_medium=social&utm_oi=803254883036831744)
 
 
 
@@ -153,4 +166,47 @@ IoC 的思想最核心的地方在于，资源不由使用资源的双方管理�
 
 - 资源集中管理，实现资源的可配置和易管理。
 - 降低了使用资源双方的依赖程度，也就是我们说的耦合度。
+
+
+
+### Bean 的生命周期
+
+普通的 Java 对象，通过 new 进行 Bean 实例化，然后该 Bean 对象就可以使用了，一旦该 Bean 对象不再使用，就会被 Java 虚拟机进行垃圾回收。
+
+
+
+Spring 容器中的 Bean 的生命周期由 Spring 容器控制，其生命周期如下：
+
+![image](https://user-images.githubusercontent.com/19634532/61228443-e310cb00-a758-11e9-8b47-774300eb13db.png)
+
+
+
+singleton 类型的 Bean 如上生命周期，prototype 类型的 Bean完成实例化之后就由调用方去管理后续流程了，IoC容器不再管理。
+
+[Spring中Bean的生命周期](http://cxis.me/2017/02/12/Spring%E4%B8%ADBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/)
+
+
+
+
+
+### Bean 的作用域
+
+- 单例（ Singleton ）：在整个应用中，只创建一个 Bean 实例。
+- 原型（ Prototype）：每次注入或者通过 Spring 应用上下文获取的时候，都会创建一个 Bean 实例。
+- 会话（ Session ）：在 Web 应用中，为每个会话创建一个 Bean 实例。
+- 请求（Request）：在 Web 应用中，为每个请求创建一个 Bean 实例。
+
+默认作用域是 Singleton 的。
+
+如果选择其他作用域，要使用 **@Scope** 注解
+
+```java
+@Service
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+public class ServiceImpl{
+
+}
+```
+
+
 
