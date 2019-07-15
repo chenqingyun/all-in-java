@@ -202,25 +202,20 @@ All In Java
 
 面试遇到的：
 
-- 对 IOC 的理解？IOC 初始化流程？
+- [对 IOC 的理解？IOC 初始化流程？](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/IoC.md#ioc)
+- [介绍一下 Spring 中的容器](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/IoC.md#%E4%BB%80%E4%B9%88%E6%98%AF-spring-%E5%AE%B9%E5%99%A8)
+- [bean 的生命周期](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/IoC.md#bean-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F)
 - AOP 的理解？AOP 流程？AOP 的几种实现方式？
-- 介绍一下 Spring 中的容器
-- bean 的生命周期
 
 
 
 其他：
 
-- BeanFactory 和 FactoryBean 的区别
-- BeanFactoryPostProcessor 和 BeanPostProcessor 的区别
 - 有哪些设计模式？具体体现在哪里？
 - Spring 事务隔离级别？实现原理？如何实现事务管理？
-- srpingMVC 的原理
-- springMVC 注解的意思
-- spring中 beanFactory 和 ApplicationContext 的联系和区别
-- spring 注入的几种方式
-- spring 中循环注入的方式
-- 对Spring的理解，非单例注入的原理？它的生命周期？循环注入的原理，aop的实现原理，说说aop中的几个术语，它们是怎么相互工作的？
+- SrpingMVC 的原理
+- SpringMVC 注解的意思
+- [Spring 中 BeanFactory 和 ApplicationContext 的联系和区别](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/IoC.md#%E4%BB%80%E4%B9%88%E6%98%AF-spring-%E5%AE%B9%E5%99%A8)
 - spring boot特性，优势，适用场景等
 
 
