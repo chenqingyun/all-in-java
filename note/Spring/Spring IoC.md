@@ -4,10 +4,12 @@
 
 - [什么是 IoC？](#什么是-ioc)
 - [什么是 Spring 容器？](什么是-spring-容器)
+- [ApplicationContext 和 BeanFactory 的区别？](#applicationContext-和-beanFactory-的区别)
 - [IoC 实现原理](#ioc-实现原理)
 - [IoC 有什么好处？](ioc-有什么好处)
 - [Bean 的生命周期](#bean-的生命周期)
 - [Bean 的作用域](#bean-的作用域)
+- [Spring 中的单例 Bean 是线程安全的吗](#spring-中的单例-bean-是线程安全的吗)
 
 
 
@@ -210,3 +212,8 @@ public class ServiceImpl{
 
 
 
+### Spring 中的单例 Bean 是线程安全的吗
+
+Spring 并没有对单例 Bean 进行任何多线程的封装处理。关于单例 Bean 的线程安全和并发问题需要开发者自行解决。但实际上，大部分 Spring Bean 并没有可变的状态（比如 Service 类和 DAO 类），所以在某种程度上，Spring 的单例 Bean 是线程安全的。如果你的 Bean 有多种状态（比如 View Model 对象），就需要自行保证线程安全。
+
+最容易的解决办法就是将多态 Bean 的作用域由「 singleton 」变更为「 prototype 」。

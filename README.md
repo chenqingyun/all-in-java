@@ -200,23 +200,16 @@ All In Java
 
 ## Spring
 
-面试遇到的：
-
 - [对 IOC 的理解？IOC 初始化流程？](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/IoC.md#ioc)
 - [介绍一下 Spring 中的容器](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/IoC.md#%E4%BB%80%E4%B9%88%E6%98%AF-spring-%E5%AE%B9%E5%99%A8)
 - [bean 的生命周期](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/IoC.md#bean-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F)
-- AOP 的理解？AOP 流程？AOP 的几种实现方式？
+- [Spring 中 BeanFactory 和 ApplicationContext 的联系和区别](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/IoC.md#%E4%BB%80%E4%B9%88%E6%98%AF-spring-%E5%AE%B9%E5%99%A8)
+- [AOP 的理解？AOP 流程？AOP 的几种实现方式？](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/Spring%20AOP.md)
 
-
-
-其他：
-
-- 有哪些设计模式？具体体现在哪里？
+- [有哪些设计模式？具体体现在哪里？](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/Spring%20%E6%A6%82%E8%BF%B0.md#spring-%E4%B8%AD%E7%94%A8%E5%88%B0%E4%BA%86%E5%93%AA%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F)
 - Spring 事务隔离级别？实现原理？如何实现事务管理？
 - SrpingMVC 的原理
-- SpringMVC 注解的意思
-- [Spring 中 BeanFactory 和 ApplicationContext 的联系和区别](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/IoC.md#%E4%BB%80%E4%B9%88%E6%98%AF-spring-%E5%AE%B9%E5%99%A8)
-- spring boot特性，优势，适用场景等
+- spring boot 特性，优势，适用场景等
 
 
 
