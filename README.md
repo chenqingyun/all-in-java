@@ -215,14 +215,12 @@ All In Java
 
 ## MyBatis
 
-面试遇到的：
-
-- MyBatis 只写了接口为啥就能执行 SQL ？SqlSession 执行流程？
+- [MyBatis 只写了接口为啥就能执行 SQL ？SqlSession 执行流程？](https://github.com/chenqingyun/all-in-java/blob/master/note/MyBatis/MyBatis%20%E5%8F%AA%E5%86%99%E4%BA%86%E6%8E%A5%E5%8F%A3%E4%B8%BA%E5%95%A5%E5%B0%B1%E8%83%BD%E6%89%A7%E8%A1%8C%20SQL.md)
 
 - [介绍一下 mybatis 的查询缓存机制](https://github.com/chenqingyun/all-in-java/blob/master/note/MyBatis/MyBatis%20%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.md)
 - [$ 和 # 的区别，使用场景分别是什么？](https://github.com/chenqingyun/all-in-java/blob/master/note/MyBatis/%24%20%E5%92%8C%20%23%20%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 
-- 有哪些设计模式？具体体现在哪里？
+- [有哪些设计模式？具体体现在哪里？](http://www.crazyant.net/2022.html)
 
 
 
