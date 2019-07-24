@@ -218,7 +218,7 @@ All In Java
 面试遇到的：
 
 - 介绍一下 mybatis 的查询缓存机制
-- $ 和 # 的区别，使用场景分别是什么？
+- [$ 和 # 的区别，使用场景分别是什么？](https://github.com/chenqingyun/all-in-java/blob/master/note/MyBatis/%24%20%E5%92%8C%20%23%20%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 
 
 

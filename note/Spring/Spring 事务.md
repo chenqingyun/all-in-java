@@ -75,3 +75,5 @@ Spring 使用 **AOP**（面向切面编程）来实现**声明式事务**。
 
 
 [Spring 事务原理一探](https://zhuanlan.zhihu.com/p/54067384)
+
+[Spring 源码分析：不得不重视的 Transaction 事务](https://mp.weixin.qq.com/s/8jWoraaWpeC7qiS6YGLJ_A)
