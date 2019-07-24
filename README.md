@@ -217,17 +217,12 @@ All In Java
 
 面试遇到的：
 
-- 介绍一下 mybatis 的查询缓存机制
+- MyBatis 只写了接口为啥就能执行 SQL ？SqlSession 执行流程？
+
+- [介绍一下 mybatis 的查询缓存机制](https://github.com/chenqingyun/all-in-java/blob/master/note/MyBatis/MyBatis%20%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6.md)
 - [$ 和 # 的区别，使用场景分别是什么？](https://github.com/chenqingyun/all-in-java/blob/master/note/MyBatis/%24%20%E5%92%8C%20%23%20%E7%9A%84%E5%8C%BA%E5%88%AB.md)
 
-
-
-其他：
-
 - 有哪些设计模式？具体体现在哪里？
-- mapper 文件加载流程
-- 执行流程
-- SqlSession 执行流程
 
 
 
