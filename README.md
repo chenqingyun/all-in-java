@@ -208,8 +208,8 @@ All In Java
 
 - [有哪些设计模式？具体体现在哪里？](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/Spring%20%E6%A6%82%E8%BF%B0.md#spring-%E4%B8%AD%E7%94%A8%E5%88%B0%E4%BA%86%E5%93%AA%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F)
 - [Spring 事务隔离级别？实现原理？如何实现事务管理？](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/Spring%20%E4%BA%8B%E5%8A%A1.md)
-- SrpingMVC 的原理
-- spring boot 特性，优势，适用场景等
+- [SpringMVC 的原理](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/SpringMVC.md)
+- Spring boot 特性，优势，适用场景等
 
 
 
