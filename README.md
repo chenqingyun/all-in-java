@@ -253,11 +253,11 @@ All In Java
 
 ### ZooKeeper
 
-- 介绍一下 zk 的选举算法
+- [介绍一下 ZooKeeper 的选举算法](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/ZooKeeper%20%E5%8E%9F%E7%90%86.md#leader-%E9%80%89%E4%B8%BE%E8%BF%87%E7%A8%8B)
 
-- zookeeper 原理和适用场景
+- [ZooKeeper 原理和适用场景](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/ZooKeeper%20%E5%8E%9F%E7%90%86.md#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF)
 
-- zookeeper watch 机制
+- [ZooKeeper Watcher 机制](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/ZooKeeper%20%E5%8E%9F%E7%90%86.md#watcher-%E6%9C%BA%E5%88%B6)
 
 - [ZK 集群如何实现高可用部署？](https://cloud.tencent.com/developer/article/1442971)
 
