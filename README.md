@@ -247,17 +247,19 @@ All In Java
 - 性能设计 / 可靠性设计 / 可用性设计
 - [如何实现何高并发下的削峰，限流？](https://blog.csdn.net/lx_Frolf/article/details/86132291)
 - MQ的连接是线程安全的吗
-- MQ系统的数据如何保证不丢失
+- MQ 系统的数据如何保证不丢失
 
 
 
-### zookeeper
-
-面试遇到的：
+### ZooKeeper
 
 - 介绍一下 zk 的选举算法
-- zookeeper原理和适用场景
-- zookeeper watch机制
+
+- zookeeper 原理和适用场景
+
+- zookeeper watch 机制
+
+- [ZK 集群如何实现高可用部署？](https://cloud.tencent.com/developer/article/1442971)
 
 
 
