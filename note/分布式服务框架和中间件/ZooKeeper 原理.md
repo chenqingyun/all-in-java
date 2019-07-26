@@ -12,8 +12,8 @@
   - [Leader 选举过程](#leader-选举过程 ) 
   - [如何进行数据同步](#如何进行数据同步)
   - [消息广播过程](#消息广播过程)
-- Watcher 机制
-- [有哪些应用场景？](#有哪些应用场景？)
+- [Watcher 机制](#watcher-机制)
+- [有哪些应用场景？](#有哪些应用场景)
 
 
 
@@ -195,6 +195,8 @@ Leader 选举出了后还要解决两个问题：
 
 
 
+![image](https://user-images.githubusercontent.com/19634532/61966764-07e12a00-b006-11e9-8998-aac3ad907227.png)
+
 广播模式需要保证提案被按顺序处理，因此 ZooKeeper 采用了递增的事务 id 号（ZXID）来保证。所有的提案都在被提出的时候加上了 ZXID。
 
 
@@ -203,7 +205,46 @@ Leader 选举出了后还要解决两个问题：
 
 ### Watcher 机制
 
+Watcher（事件监听器）机制是 ZooKeeper 实现分布式协调服务的重要特性。
 
+
+
+Watcher 机制采用异步非阻塞的主动通知模式。该机制主要包括客户端线程、客户端 WatchManager 和 ZooKeeper 服务器三部分。
+
+具体工作流程上，简单地说：
+
+1. 客户端先向 ZooKeeper 服务端成功注册想要监听的节点（ZNode），同时客户端本地会存储该监听器相关的信息在 WatchManager 中。
+2. 当 ZooKeeper 服务端监听的 ZNode 数据状态发生变化时，ZooKeeper 就会主动通知相关会话客户端，客户端线程从 WatchManager 中取出对应的 Watcher 对象来执行回调逻辑。
+
+![image](https://user-images.githubusercontent.com/19634532/61968067-a327ce80-b009-11e9-9efd-5e884a6c8419.png)
+
+**Watcher 机制的特性：**
+
+- Watcher 是一次性的，触发后即销毁，需要重新注册，并且客户端在会话异常结束时不会收到任何通知，而快速重连接时仍不影响接收通知。
+- Watcher 的回调执行都是顺序执行的，并且客户端在没有收到关注数据的变化事件通知之前是不会看到最新的数据，另外需要注意不要在 Watcher 回调逻辑中阻塞整个客户端的 Watcher 回调。
+- Watcher 是轻量级的，WatchEvent 是最小的通信单元，结构上只包含通知状态、事件类型和节点路径。ZooKeeper 服务端只会通知客户端发生了什么，并不会告诉具体内容。
+- 父节点、子节点的修改都能触发其 Watcher，Watcher 不能监听到孙节点。
+- 一个节点上可以有多个 Watcher 监听。
+
+[ZooKeeper Watcher机制](https://juejin.im/post/5b0784ab6fb9a07abf72f098)
+
+
+
+**Watcher 机制使用场景**：
+
+[发布订阅，即统一配置中心。](#发布订阅配置中心)
+
+
+
+客户的如何注册监听？
+
+服务端如何处理监听器的请求？
+
+服务端如何触发监听？
+
+客户端如何回调监听？
+
+参考 [zookeeper-watcher机制](http://www.zzcblogs.top/2018/11/06/zookeeper-watcher%E6%9C%BA%E5%88%B6/)
 
 
 
@@ -239,7 +280,7 @@ ZooKeeper 实现排他锁，共享锁（读锁）
 
 
 
-释放锁的情况有如下两种
+释放锁的情况有如下两种：
 
 - 当前获取锁的客户端发生宕机，那么 ZooKeeper 上的这个临时节点就会被删除。
 - 正常执行完业务逻辑后，客户端会主动将自己创建的临时节点删除。
