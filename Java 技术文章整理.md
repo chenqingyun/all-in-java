@@ -101,13 +101,17 @@
 
 
 
-## 中间件
+## 分布式服务框架和中间件
 
-### 消息中间件
 - [简历写了会Kafka，面试官90%会让你讲讲acks参数对消息持久化的影响](https://mp.weixin.qq.com/s/IxS46JAr7D9sBtCDr8pd7A)
+
 - [17 个方面，综合对比 Kafka、RabbitMQ、RocketMQ、ActiveMQ 四个分布式消息队列](https://mp.weixin.qq.com/s/gb4DmxhpdKlY_1wgj5ng2g)
+
 - [如何发现 Redis 热点 Key ，解决方案有哪些？](https://mp.weixin.qq.com/s/3mw5kliTo-4Pzq-PH-ly1w)
+
 - [【Kafka】《Kafka权威指南》入门](https://juejin.im/post/5ce4a0705188253382696dbf?utm_source=gold_browser_extension)
+
+- [阿里技术专家详解 Dubbo 实践，演进及未来规划](https://www.infoq.cn/article/IwZCAp3jo_H5fJFbWOZu)
 
 
 
