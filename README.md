@@ -51,8 +51,6 @@ All In Java
 
 ## Java 并发编程
 
-面试遇到的：
-
 - [线程有哪些状态？如何流转的？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 
 - [volatile 关键字？如何保证可见性和有序性？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/volatile%20%E5%85%B3%E9%94%AE%E5%AD%97.md)
@@ -81,11 +79,6 @@ All In Java
 
 - [sleep 和 wait 的区别](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%AD%89%E5%BE%85%E9%80%9A%E7%9F%A5%E6%9C%BA%E5%88%B6%EF%BC%9Await%20%E5%92%8C%20notify.md#waitsleep-%E5%92%8C-yield-%E7%9A%84%E5%8C%BA%E5%88%AB)
 
-  
-
-
-其他：
-
 - [可见性、原子性、有序性。什么原因导致可见性原子性有序性问题？如何保证？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%8E%9F%E5%AD%90%E6%80%A7%E3%80%81%E5%8F%AF%E8%A7%81%E6%80%A7%E3%80%81%E6%9C%89%E5%BA%8F%E6%80%A7.md)
 
 - [Thread 的 run 方法和 start 方法有什么区别？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/Thread%20%E7%B1%BB%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB.md#run-%E6%96%B9%E6%B3%95)
@@ -99,8 +92,6 @@ All In Java
 
 
 ## Java 虚拟机
-
-面试遇到的：
 
 - [Java 虚拟机运行时时数据区如何划分？都分别有哪些功能？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.md)
 - [Java 内存模型。谈谈 volatile 关键字。什么是 Happens-Before 规则？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md)
@@ -254,37 +245,29 @@ All In Java
 ### ZooKeeper
 
 - [介绍一下 ZooKeeper 的选举算法](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/ZooKeeper%20%E5%8E%9F%E7%90%86.md#leader-%E9%80%89%E4%B8%BE%E8%BF%87%E7%A8%8B)
-
 - [ZooKeeper 原理和适用场景](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/ZooKeeper%20%E5%8E%9F%E7%90%86.md#%E6%9C%89%E5%93%AA%E4%BA%9B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF)
-
 - [ZooKeeper Watcher 机制](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/ZooKeeper%20%E5%8E%9F%E7%90%86.md#watcher-%E6%9C%BA%E5%88%B6)
-
 - [ZK 集群如何实现高可用部署？](https://cloud.tencent.com/developer/article/1442971)
+- [使用 Redis 如何设计分布式锁？使用 Zookeeper 来设计分布式锁可以吗？以上两种分布式锁的实现方式哪种效率比较高？](https://github.com/doocs/advanced-java/blob/master/docs/distributed-system/distributed-lock-redis-vs-zookeeper.md)
 
 
 
 ### 分布式服务框架：Dubbo
 
-面试遇到的：
-
-- dubbo 的工作原理？注册中心挂了可以继续通信吗？
-- dubbo 支持哪些序列化协议？说一下 hessian 的数据结构？PB 知道吗？为什么 PB 的效率是最高的？
+- [Dubbo 的工作原理？注册中心挂了可以继续通信吗？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo.md)
+- [说一下 RPC 的调用过程](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90.md#dubbo-%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90)
+- dubbo 支持哪些序列化协议？介绍一下，说一下 hessian 的数据结构？
 - 如何自己设计一个类似 dubbo 的 rpc 框架？需要考虑的点有哪些呢？（动态代理 通信协议 负载均衡 序列化与反序列化）
-- 说一下 RPC 的调用过程。
-- dubbo 的异步调用。
-- 服务发现和服务监控？
+- Dubbo 的异步调用。
+- 服务监控？
 - 如何基于 dubbo 进行服务治理、服务降级、失败重试以及超时重试？
-- 描述一个服务从发布到被消费的详细过程
 - Dubbo 协议是怎么实现的? 
-
-
-
-其他：
+- [描述一个服务从发布到被消费的详细过程，服务注册、服务暴露、服务发现、服务调用](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E6%9A%B4%E9%9C%B2%E3%80%81%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8.md#dubbo-%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%E6%9A%B4%E9%9C%B2%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8)
 
 - dubbo 的负载均衡和高可用策略？动态代理策略？
-- dubbo 的 SPI 思想是什么？
+- [Dubbo 的 SPI 思想是什么？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20SPI%20%E6%9C%BA%E5%88%B6.md)
 - dubbo 服务接口的幂等性如何设计（比如不能重复扣款，不能重复生成订单，不能重复创建卡号）？
-- dubbo 服务接口请求的顺序性如何保证？
+- [dubbo 服务接口请求的顺序性如何保证？](https://github.com/doocs/advanced-java/blob/master/docs/distributed-system/distributed-system-request-sequence.md)
 
 
 
@@ -358,3 +341,10 @@ All In Java
 - [一个学渣的阿里之路](https://mp.weixin.qq.com/s/-2pwc9yus6n5mn37fQqNEA)
 
 - [字节跳动、腾讯后台开发面经分享(2019.5)](https://juejin.im/post/5cf7ea91e51d4576bc1a0dc2?utm_source=gold_browser_extension)
+
+
+
+## GitHub 仓库
+
+- [doocs / advanced-java](https://github.com/doocs/advanced-java)
+

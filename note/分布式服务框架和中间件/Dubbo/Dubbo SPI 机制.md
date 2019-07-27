@@ -8,5 +8,7 @@ SPI 的本质是将接口实现类的全限定名配置在文件中，并由服�
 
 
 
-[Dubbo 官网-Dubbo SPI](http://dubbo.apache.org/zh-cn/docs/source_code_guide/dubbo-spi.html)
+- [Dubbo 的 spi 思想是什么？](https://github.com/doocs/advanced-java/blob/master/docs/distributed-system/dubbo-spi.md)
+
+- [Dubbo 官网-Dubbo SPI](http://dubbo.apache.org/zh-cn/docs/source_code_guide/dubbo-spi.html)
 

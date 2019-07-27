@@ -2,7 +2,7 @@
 
 ### 目录
 
-- [服务端服务注册与暴露](#Dubbo 服务调用过程分析)
+- [服务端服务注册与暴露](#服务端服务注册与暴露)
 
   - [服务暴露](#服务暴露)
   - [服务注册](#服务注册)
@@ -76,6 +76,8 @@ Dubbo 服务导出过程始于 Spring 容器发布刷新事件，Dubbo 在接收
 
 
 
+#### 服务发现
+
 Dubbo 服务引用的时机有两个：
 
 - 第一个是在 Spring 容器调用 ReferenceBean 的 afterPropertiesSet 方法时引用服务，这种是饿汉式；
@@ -113,4 +115,4 @@ Dubbo 服务调用过程比较复杂，包含众多步骤，比如发送请求�
 
 
 
-[Dubbo 服务调用过程分析]()
+[Dubbo 服务调用过程分析](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90.md#dubbo-%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90)
