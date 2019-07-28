@@ -78,6 +78,8 @@ Dubbo 服务导出过程始于 Spring 容器发布刷新事件，Dubbo 在接收
 
 #### 服务发现
 
+服务发现是指 consumer 查找 provider 地址（IP + port）的过程。
+
 Dubbo 服务引用的时机有两个：
 
 - 第一个是在 Spring 容器调用 ReferenceBean 的 afterPropertiesSet 方法时引用服务，这种是饿汉式；
