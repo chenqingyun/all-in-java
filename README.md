@@ -216,7 +216,7 @@ All In Java
 
 
 
-## 分布式相关
+## 分布式架构
 
 - [面试官们“爱不释手”的分布式系统架构到底是个什么鬼？](https://juejin.im/post/5d00ea3b6fb9a07eec59c332?utm_source=gold_browser_extension)
 - 如何实现分布式缓存
@@ -229,7 +229,21 @@ All In Java
 
 
 
-## MQ
+### 分布式架构常见的要解决的技术问题
+
+- 分布式会话
+- 分布式锁
+- 分布式事务
+- 分布式搜索
+- 分布式缓存
+- 分布式消息队列
+- 统一配置中心
+- 分布式存储，数据库分库分表
+- [服务雪崩、限流、熔断、降级等](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%9C%8D%E5%8A%A1%E9%9B%AA%E5%B4%A9%E3%80%81%E7%86%94%E6%96%AD%E3%80%81%E9%99%8D%E7%BA%A7%E5%92%8C%E9%99%90%E6%B5%81.md)
+
+
+
+### MQ
 
 面试遇到的：
 
@@ -270,26 +284,6 @@ All In Java
 - [dubbo 服务接口请求的顺序性如何保证？](https://github.com/doocs/advanced-java/blob/master/docs/distributed-system/distributed-system-request-sequence.md)
 
 
-
-### 分布式架构常见的要解决的技术问题
-
-- 分布式会话
-
-- 分布式锁
-
-- 分布式事务
-
-- 分布式搜索
-
-- 分布式缓存
-
-- 分布式消息队列
-
-- 统一配置中心
-
-- 分布式存储，数据库分库分表
-
-- 限流、熔断、降级等
 
 
 
