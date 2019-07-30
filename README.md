@@ -15,6 +15,10 @@ All In Java
 
 
 
+> 以下内容有些只是简单的知识性总结，鞭辟入里的分析 TODO。
+
+
+
 ## Java 基础
 
 - [介绍一下 ArrayList 和 LinkedList 的区别及实现原理](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/LinkedList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md#%E4%B8%8E-arraylist-%E7%9A%84%E6%AF%94%E8%BE%83)
@@ -243,19 +247,6 @@ All In Java
 
 
 
-### MQ
-
-面试遇到的：
-
-- 异步 解耦 削峰填谷
-- 消息丢失， 消息重复
-- 性能设计 / 可靠性设计 / 可用性设计
-- [如何实现何高并发下的削峰，限流？](https://blog.csdn.net/lx_Frolf/article/details/86132291)
-- MQ的连接是线程安全的吗
-- MQ 系统的数据如何保证不丢失
-
-
-
 ### ZooKeeper
 
 - [介绍一下 ZooKeeper 的选举算法](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/ZooKeeper%20%E5%8E%9F%E7%90%86.md#leader-%E9%80%89%E4%B8%BE%E8%BF%87%E7%A8%8B)
@@ -273,17 +264,28 @@ All In Java
 - [dubbo 支持哪些序列化协议？介绍一下，说一下 hessian 的数据结构？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E5%BA%8F%E5%88%97%E5%8C%96%E5%8D%8F%E8%AE%AE.md)
 - [如何自己设计一个类似 dubbo 的 rpc 框架？需要考虑的点有哪些呢？（动态代理、通信协议、负载均衡、序列化与反序列化）](https://github.com/doocs/advanced-java/blob/master/docs/distributed-system/dubbo-rpc-design.md)
 - [Dubbo 的异步调用](http://dubbo.apache.org/zh-cn/blog/dubbo-invoke.html)
-- 服务监控？
-- 如何基于 dubbo 进行服务治理、服务降级、失败重试以及超时重试？
-- Dubbo 协议是怎么实现的? 
+- [Dubbo 服务监控](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7.md)
+- [如何基于 dubbo 进行服务治理、服务降级、失败重试以及超时重试？](https://github.com/doocs/advanced-java/blob/master/docs/distributed-system/dubbo-service-management.md)
+- [Dubbo 协议](http://dubbo.apache.org/zh-cn/docs/user/references/protocol/dubbo.html) 
 - [描述一个服务从发布到被消费的详细过程，服务注册、服务暴露、服务发现、服务调用](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E6%9A%B4%E9%9C%B2%E3%80%81%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8.md#dubbo-%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%E6%9A%B4%E9%9C%B2%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8)
-
-- dubbo 的负载均衡和高可用策略？动态代理策略？
+- [Dubbo 的负载均衡](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1.md)
+- [Dubbo 集群容错策略](http://dubbo.apache.org/zh-cn/docs/user/demos/fault-tolerent-strategy.html)
 - [Dubbo 的 SPI 思想是什么？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20SPI%20%E6%9C%BA%E5%88%B6.md)
-- dubbo 服务接口的幂等性如何设计（比如不能重复扣款，不能重复生成订单，不能重复创建卡号）？
+- [dubbo 服务接口的幂等性如何设计（比如不能重复扣款，不能重复生成订单，不能重复创建卡号）？](https://github.com/doocs/advanced-java/blob/master/docs/distributed-system/distributed-system-idempotency.md)
 - [dubbo 服务接口请求的顺序性如何保证？](https://github.com/doocs/advanced-java/blob/master/docs/distributed-system/distributed-system-request-sequence.md)
 
 
+
+### MQ
+
+面试遇到的：
+
+- 异步 解耦 削峰填谷
+- 消息丢失， 消息重复
+- 性能设计 / 可靠性设计 / 可用性设计
+- [如何实现何高并发下的削峰，限流？](https://blog.csdn.net/lx_Frolf/article/details/86132291)
+- MQ的连接是线程安全的吗
+- MQ 系统的数据如何保证不丢失
 
 
 
