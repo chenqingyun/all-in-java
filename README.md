@@ -281,7 +281,7 @@ All In Java
 - [为什么使用消息队列？有哪些适用场景？使用消息队列有哪些问题？Kafka、ActiveMQ、RabbitMQ、RocketMQ 都有什么优点和缺点？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.md)
 - 如何保证消息队列的高可用？
 - 如何保证消息不被重复消费？（如何保证消息消费的幂等性）
-- 如何保证消息的可靠性传输？（如何处理消息丢失的问题）
+- [如何保证消息的可靠性传输？（如何处理消息丢失的问题）](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/RabbitMQ%20%E6%B6%88%E6%81%AF%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98.md)
 - 如何保证消息的顺序性？
 - 性能设计 / 可靠性设计 / 可用性设计
 - [如何实现何高并发下的削峰，限流？](https://blog.csdn.net/lx_Frolf/article/details/86132291)
