@@ -24,7 +24,7 @@ All In Java
 - [介绍一下 ArrayList 和 LinkedList 的区别及实现原理](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/LinkedList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md#%E4%B8%8E-arraylist-%E7%9A%84%E6%AF%94%E8%BE%83)
 - [HashMap 的 底层数结构？get / put / values 方法实现过程？扩容机制？如何解决 hash 碰撞？HashTable 和 HashMap的区别？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/HashMap%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md#hashmap-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90)
 - [ConcurrentHashMap 数据结构？实现原理？与 HashMap 比较？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ConcurrentHashMap%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86.md)
-- 谈谈一致 hash 算法？
+- 一致 hash 算法？
 - String 类为什么是 final 的？
   
 - Java 中的队列都有哪些，有什么区别。
@@ -257,7 +257,7 @@ All In Java
 
 
 
-### 分布式服务框架：Dubbo
+### Dubbo
 
 - [Dubbo 的工作原理？注册中心挂了可以继续通信吗？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo.md)
 - [说一下 RPC 的调用过程](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90.md#dubbo-%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B%E5%88%86%E6%9E%90)
@@ -276,15 +276,16 @@ All In Java
 
 
 
-### MQ
+### RabbitMQ
 
-面试遇到的：
-
-- 异步 解耦 削峰填谷
-- 消息丢失， 消息重复
+- [为什么使用消息队列？有哪些适用场景？使用消息队列有哪些问题？Kafka、ActiveMQ、RabbitMQ、RocketMQ 都有什么优点和缺点？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.md)
+- 如何保证消息队列的高可用？
+- 如何保证消息不被重复消费？（如何保证消息消费的幂等性）
+- 如何保证消息的可靠性传输？（如何处理消息丢失的问题）
+- 如何保证消息的顺序性？
 - 性能设计 / 可靠性设计 / 可用性设计
 - [如何实现何高并发下的削峰，限流？](https://blog.csdn.net/lx_Frolf/article/details/86132291)
-- MQ的连接是线程安全的吗
+- MQ 的连接是线程安全的吗
 - MQ 系统的数据如何保证不丢失
 
 
@@ -299,7 +300,7 @@ All In Java
 - 二叉树遍历
 - 快速排序
 - BTree 相关的操作
-- hash算法的有哪几种，优缺点，使用场景
+- hash 算法的有哪几种，优缺点，使用场景
 - 什么是一致性hash 算法
 - paxos 算法
 
