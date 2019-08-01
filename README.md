@@ -279,14 +279,19 @@ All In Java
 ### RabbitMQ
 
 - [为什么使用消息队列？有哪些适用场景？使用消息队列有哪些问题？Kafka、ActiveMQ、RabbitMQ、RocketMQ 都有什么优点和缺点？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.md)
-- 如何保证消息队列的高可用？
-- 如何保证消息不被重复消费？（如何保证消息消费的幂等性）
+- [如何保证消息队列的高可用？](https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/how-to-ensure-high-availability-of-message-queues.md#%E9%95%9C%E5%83%8F%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%BC%8F%E9%AB%98%E5%8F%AF%E7%94%A8%E6%80%A7)
+- [如何保证消息不被重复消费？（如何保证消息消费的幂等性）](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/RabbitMQ%20%E6%B6%88%E6%81%AF%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9.md)
 - [如何保证消息的可靠性传输？（如何处理消息丢失的问题）](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/RabbitMQ%20%E6%B6%88%E6%81%AF%E4%B8%A2%E5%A4%B1%E9%97%AE%E9%A2%98.md)
 - [如何保证消息的顺序性？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/RabbitMQ%20%E6%B6%88%E6%81%AF%E9%A1%BA%E5%BA%8F%E6%80%A7.md)
-- 性能设计 / 可靠性设计 / 可用性设计
+- [如何解决消息队列的延时以及过期失效问题？消息队列满了以后该怎么处理？有几百万消息持续积压几小时，说说怎么解决？](https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/mq-time-delay-and-expired-failure.md)
+- [如果让你写一个消息队列，该如何进行架构设计啊？说一下你的思路。（可用性、高可靠性、可扩展性等）](https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/mq-design.md)
 - [如何实现何高并发下的削峰，限流？](https://blog.csdn.net/lx_Frolf/article/details/86132291)
-- MQ 的连接是线程安全的吗
-- MQ 系统的数据如何保证不丢失
+
+
+
+推荐阅读：
+
+《RabbitMQ 实战指南》
 
 
 
