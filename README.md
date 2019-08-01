@@ -21,10 +21,14 @@ All In Java
 
 ## Java 基础
 
+- [Java 异常处理机制？如何处理异常？]([https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/Java%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.md#java-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6](https://github.com/chenqingyun/all-in-java/blob/master/note/Java 基础/Java 异常处理机制.md#java-异常处理机制))
+
 - [介绍一下 ArrayList 和 LinkedList 的区别及实现原理](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/LinkedList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md#%E4%B8%8E-arraylist-%E7%9A%84%E6%AF%94%E8%BE%83)
+
 - [HashMap 的 底层数结构？get / put / values 方法实现过程？扩容机制？如何解决 hash 碰撞？HashTable 和 HashMap的区别？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/HashMap%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md#hashmap-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90)
+
 - [ConcurrentHashMap 数据结构？实现原理？与 HashMap 比较？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ConcurrentHashMap%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86.md)
-- 一致 hash 算法？
+
 - String 类为什么是 final 的？
   
 - Java 中的队列都有哪些，有什么区别。
@@ -306,7 +310,7 @@ All In Java
 - 快速排序
 - BTree 相关的操作
 - hash 算法的有哪几种，优缺点，使用场景
-- 什么是一致性hash 算法
+- 一致性hash 算法
 - paxos 算法
 
 

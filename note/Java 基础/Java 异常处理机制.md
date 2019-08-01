@@ -19,7 +19,6 @@
 <div align="center"><img src="https://upload-images.jianshu.io/upload_images/3297676-fbb20e337e8a4def.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width= "800px"></div>
 
 
-
 - Error：描述 Java 运行时系统的内部错误和资源耗尽错误，无法人工处理。
 
 - RuntimeException：由程序错误导致的异常，发生该错误，说明代码有问题。
@@ -28,7 +27,7 @@
 
 
 
-异常又可分为检查型异常（CheckedException）和不检查型异常（UncheckedException）：
+异常又可分为「 检查型异常 」（CheckedException）和「 不检查型异常 」（UncheckedException）：
 
 **UncheckedException**：派生于 Error 类和 RuntimeException 类的异常都是 UncheckedException。
 
@@ -115,7 +114,8 @@ try 语句块中含有 return 语句，是先执行 return 语句，只是 retur
 - 如无必要，勿用异常，只在异常情况下使用异常机制。
 - 尽量不要捕获类似 Exception 这样的通用异常，而是应该捕获特定异常。
 - 不要生吞（swallow）异常，不做任何处理。
-- Throw early, catch late 原则：
+- 不要使用异常做业务流程控制。
+- throw early，catch late 原则：
   - 提早抛出：检查错误时，尽早抛出错误异常。
   - 延迟捕获：底层逻辑代码异常只管抛出，到高层再统一处理；没法处理的异常不要捕获，抛到上层再处理。
 
@@ -141,6 +141,6 @@ try 语句块中含有 return 语句，是先执行 return 语句，只是 retur
 - 如果不发生异常，性能几乎是不受影响的，与没有 try-cath 的代码一样。
 - 一旦异常发生，进入 catch 代码块里，创建异常对象、收集栈信息等操作就比较影响性能。
 
-详细分析：[从 JVM 视角分析 try...catch...性能](<https://juejin.im/post/5b65a8f2f265da0fa00a399a>)
+详细分析：[从 JVM 视角分析 try...catch...性能](https://juejin.im/post/5b65a8f2f265da0fa00a399a)
 
 
