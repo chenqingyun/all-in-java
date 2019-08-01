@@ -1,15 +1,17 @@
-package com.chenqingyun.se.reflection;
+package com.chenqingyun.se;
 
 /**
  * @author chenqingyun
  * @date 2019-07-14 01:35.
  */
 
-public class Person {
+public class Person implements Cloneable {
 
     private String name;
     private Integer age;
     private Integer gender;
+
+    private House house = new House();
 
     public Person() {
     }
@@ -46,5 +48,29 @@ public class Person {
 
     public void setGender(Integer gender) {
         this.gender = gender;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
+
+    @Override
+    public Object clone() {
+        try {
+            // 浅拷贝
+            return super.clone();
+        } catch (CloneNotSupportedException e) {
+
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return "person：" + name + "，" + age + "，" + gender + "；house：" +  house.getAddress();
     }
 }
