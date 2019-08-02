@@ -21,7 +21,7 @@ All In Java
 
 ## Java 基础
 
-- [Java 异常处理机制？如何处理异常？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java 基础/Java 异常处理机制.md)
+- [Java 异常处理机制？如何处理异常？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/Java%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.md)
 
 - [ArrayList 实现原理？如何扩容？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ArrayList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)
 
