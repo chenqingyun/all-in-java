@@ -275,3 +275,11 @@ size = size + 1;
 所以，ArrayList 是线程不安全的。
 
 **在 java.util.concurrent 包下提供了线程安全的 CopyOnWriteArrayList 类**，后续分析下这个类。（TODO）
+
+
+
+## 时间复杂度
+
+- 查询操作都是 O(1)；
+
+- 如果从头尾删除或添加元素，时间复杂度是 O(1)，否则是 O(n)，总体上是 O(n)。

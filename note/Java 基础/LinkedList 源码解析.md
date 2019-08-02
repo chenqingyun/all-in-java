@@ -33,7 +33,7 @@ LinkedList 继承了 AbstractSequentialList ，实现了 List 和 Deque 接口�
 
 
 
-LinkedList 的特点：有序，元素可重复，可存储 null 元素，查询慢，增删快，线程不安全。
+**LinkedList 的特点：有序，元素可重复，可存储 null 元素，查询慢，增删快，线程不安全。**
 
 
 

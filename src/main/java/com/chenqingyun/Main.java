@@ -2,9 +2,7 @@ package com.chenqingyun;
 
 import com.chenqingyun.designpattern.strategy.*;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author chenqingyun
@@ -22,5 +20,11 @@ public class Main {
         System.out.println(Long.compare(d,e));
         System.out.println(c.equals(a));
         System.out.println(a.equals(b));
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(2,3);
+        System.out.println(list);
     }
 }
