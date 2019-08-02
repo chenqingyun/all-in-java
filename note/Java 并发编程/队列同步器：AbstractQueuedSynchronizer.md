@@ -4,7 +4,8 @@
 
 - [compareAndSetState 和 setState 的区别](#compareAndSetState-和-setState-的区别)
 - [队列同步器的实现分析](#队列同步器的实现分析)
-- [CAS 实现原子操作有哪些问题](#cas-实现原子操作有哪些问题)
+- [CAS](cas)
+  - [CAS 实现原子操作有哪些问题](#cas-实现原子操作有哪些问题)
 
 
 
@@ -154,8 +155,6 @@ acquireQueued(final Node node, int arg) 方法的实现：
 
 独占式获取流程：
 <div align="center"><img src="https://user-images.githubusercontent.com/19634532/60482316-8c6cb100-9cc3-11e9-832c-1b32f8ff335b.png" width= "500px"></div>
-
-
 ##### 锁释放
 
 在锁实例的 unlock() 方法的实现中，使用了同步器的 release( int arg ) 方法来释放锁，在释放之后会唤醒其后继节点，进而使后继节点重新尝试获取锁。
@@ -243,9 +242,16 @@ private void doAcquireShared(int arg) {
 
 
 
+### CAS
+
+CAS （compareAndSwap），比较再交换，一种无锁原子算法，是乐观锁。
+
+实现思想：它包含 3 个参数 CAS（V，E，N），V 表示要更新变量的值，E 表示预期值，N 表示新值。仅当 V 值等于 E 值时，才会将 V 的值设为 N，返回 true。如果 V 值和 E 值不同，则说明已经有其他线程做两个更新，则当前线程则什么都不做，返回 false。最后，CAS 返回当前 V 的真实值。
 
 
-### CAS 实现原子操作有哪些问题
+
+
+#### CAS 实现原子操作有哪些问题
 
 **ABA 问题，循环时间长开销大，只能保证一个共享变量的原子操作**。
 
