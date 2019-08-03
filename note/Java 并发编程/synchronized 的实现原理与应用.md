@@ -4,7 +4,7 @@
 
 ### synchronized 的底层实现
 
-JVM 规范中描述了 synchronized 在 JVM 的实现过程。JVM 基于进入和退出 Monitor 对象来实现方法同步和代码块同步。
+JVM 规范中描述了 synchronized 在 JVM 的实现过程，JVM 基于进入和退出 Monitor 对象来实现方法同步和代码块同步。
 
 代码块同步是使用 **monitorenter** 和 **monitorexit** 指令实现的。方法同步是另一种方式实现的，但也可以用这两个指令实现。
 

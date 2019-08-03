@@ -33,25 +33,8 @@ All In Java
 
 - [ConcurrentHashMap 数据结构？实现原理？与 HashMap 比较？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ConcurrentHashMap%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86.md)
 
-- Collections.sort 底层排序方式？
-
-- 排序稳定性？具体场景的排序策略？
-
   
 
-## 设计模式
-
-- 在工作中遇到过哪些设计模式，是如何应用的？
-
-- [单例模式：懒汉、饿汉](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E5%88%97%E6%A8%A1%E5%BC%8F.md)
-
-- [策略模式：优化 if-else](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md)
-
-- [工厂模式](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.md)
-
-- 装饰者模式、观察者模式等
-
-  
 
 ## Java 并发编程
 
@@ -67,7 +50,9 @@ All In Java
 
 - [什么是重入锁？Reentrantlock 实现原理？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E9%87%8D%E5%85%A5%E9%94%81%EF%BC%9AReentrantLock.md)
 
-- [乐观锁和悲观锁？](https://www.cnblogs.com/exceptioneye/p/5373477.html)
+- [什么是读写锁？如何实现的？什么是锁降级？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E8%AF%BB%E5%86%99%E9%94%81%EF%BC%9AReentrantReadWriteLock.md#reentrantReadWriteLock-%E7%9A%84%E7%89%B9%E6%80%A7)
+
+- [乐观锁和悲观锁？](https://juejin.im/post/5b4977ae5188251b146b2fc8#comment)
 
 - [什么场景下应该用线程池？线程池的工作流程？介绍主要的参数？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9AThreadPoolExecutor.md#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%88%9B%E5%BB%BA)
 
@@ -89,7 +74,7 @@ All In Java
 
 - [什么是多线程上下文切换？如何引起？有哪些额外开销？如何减少额外开销？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2.md#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2%E5%AF%BC%E8%87%B4%E9%A2%9D%E5%A4%96%E7%9A%84%E5%BC%80%E9%94%80)
 
-- [什么是读写锁？如何实现的？什么是锁降级？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/%E8%AF%BB%E5%86%99%E9%94%81%EF%BC%9AReentrantReadWriteLock.md#reentrantReadWriteLock-%E7%9A%84%E7%89%B9%E6%80%A7)
+- CountDownLatch，CyclicBarrier，Exchanger，Semaphore
 
   
 
@@ -291,6 +276,16 @@ All In Java
 
 
 
+## 设计模式
+
+- 在工作中遇到过哪些设计模式，是如何应用的？
+- [单例模式：懒汉、饿汉](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%8D%95%E5%88%97%E6%A8%A1%E5%BC%8F.md)
+- [策略模式：优化 if-else](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md)
+- [工厂模式](https://github.com/chenqingyun/all-in-java/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F.md)
+- 装饰者模式、观察者模式等
+
+
+
 ## 算法和数据结构
 
 - 使用随机算法产生一个数，要求把1-1000W之间这些数全部生成。（考察高效率，解决产生冲突的问题）
@@ -304,6 +299,7 @@ All In Java
 - hash 算法的有哪几种，优缺点，使用场景
 - 一致性hash 算法
 - paxos 算法
+- 各种排序算法的稳定性？具体场景的排序策略？
 
 
 

@@ -2,10 +2,10 @@
 
 ### 目录
 
-- [compareAndSetState 和 setState 的区别](#compareAndSetState-和-setState-的区别)
 - [队列同步器的实现分析](#队列同步器的实现分析)
 - [CAS](cas)
   - [CAS 实现原子操作有哪些问题](#cas-实现原子操作有哪些问题)
+- [compareAndSetState 和 setState 的区别](#compareAndSetState-和-setState-的区别)
 
 
 
@@ -35,31 +35,17 @@ private volatile int state;
 
 
 
-### compareAndSetState 和 setState 的区别
-
-AbstractQueuedSynchronizer 提供了两个方法用以修改同步状态值，compareAndSetState 和 setState 方法：
-
-- setState( int newState )：设置当前同步状态。
-- compareAndSetState( int expect, int update )：使用 CAS 设置同步状态，能够保证状态设置的原子性。
-
-
-
-所以，这两个方法的区别是：
-
-- compareAndSetState 通常用于在获取到锁之前，尝试加锁时，对 state 进行修改，这种场景下，由于当前线程不是锁持有者，所以对 state 的修改是线程不安全的，也就是说可能存在多个线程都尝试修改 state，所以需要保证对 state 修改的原子性操作，即使用了unsafe 类的本地 CAS 方法；
-- state 方法通常用于当前正持有锁的线程对 state 变量进行修改，不存在竞争，是线程安全的，所以此处没必要用 CAS 保证原子性，修改的性能更重要。
-
-
-
 ### 队列同步器的实现分析
 
-同步器依赖内部的同步队列（FIFO 双向队列）来完成锁的获取和释放。
+同步器依赖内部的同步队列（FIFO 双向队列）和同步状态来完成锁的获取和释放。
 
-当前线程获取锁失败时，同步器会将当前线程和等待信息构造成一个节点（Node）并通过 CAS操作添加到同步队列的尾部，同时会阻塞当前线程；当锁被释放时，会把首节点中的线程唤醒，使其再次尝试获取锁。
+当前线程获取锁失败时，同步器会将当前线程和等待信息构造成一个节点（Node）并通过 CAS 操作添加到同步队列的尾部，同时会阻塞当前线程；当锁被释放时，会把首节点中的线程唤醒，使其再次尝试获取锁。
 
 
 
 #### 独占式获取与释放
+
+独占锁同一时刻有且只有一个线程能够获取到锁。ReenttrantLock、CyclicBarrier 就是独占锁。
 
 ##### 锁获取
 
@@ -123,7 +109,7 @@ addWaiter(Node mode) 方法的实现：
 
 
 
-节点进入队列之后，就进入一个「 自旋的过程」。每个节点（线程）都在观察，当条件满足时，获取到同步状态，就可以从这个自旋过程退出，否则依旧留在自旋过程中并会阻塞节点的线程。
+节点进入队列之后，就进入一个「 自旋的过程 」。每个节点（线程）都在观察，当条件满足时，获取到同步状态，就可以从这个自旋过程退出，否则依旧留在自旋过程中并会阻塞节点的线程。
 
 acquireQueued(final Node node, int arg) 方法的实现：
 
@@ -183,7 +169,7 @@ acquireQueued(final Node node, int arg) 方法的实现：
 
 #### 共享式获取与释放
 
-共享式获取与独占式获取区别在于同一时刻能否有多个线程同时获取到锁。
+共享式获取与独占式获取区别在于同一时刻能否有多个线程同时获取到锁。ReentrantReadWriteLock 就是共享锁
 
 通过调用同步器的 acquireShared(int arg)  方法可以共享的获取锁。该方法实现如下：
 
@@ -269,6 +255,24 @@ CAS （compareAndSwap），比较再交换，一种无锁原子算法，是乐�
 - **循环时间长开销大**。自旋 CAS 如果长时间不成功，会给 CPU 带来非常大的执行开销。
 
 - **只能保证一个共享变量的原子操作**。这个时候就是使用锁了。还有一个办法就是将多个共享变量合并为一个共享变量来操作。java.util.concurrent.atomic 包中提供了 **AtomicReference** 类保证引用对象之间的原子性，就可以把多个变量放在一个对象来进行 CAS 操作。
+
+
+
+
+
+### compareAndSetState 和 setState 的区别
+
+AbstractQueuedSynchronizer 提供了两个方法用以修改同步状态值，compareAndSetState 和 setState 方法：
+
+- setState( int newState )：设置当前同步状态。
+- compareAndSetState( int expect, int update )：使用 CAS 设置同步状态，能够保证状态设置的原子性。
+
+
+
+所以，这两个方法的区别是：
+
+- compareAndSetState 通常用于在获取到锁之前，尝试加锁时，对 state 进行修改，这种场景下，由于当前线程不是锁持有者，所以对 state 的修改是线程不安全的，也就是说可能存在多个线程都尝试修改 state，所以需要保证对 state 修改的原子性操作，即使用了unsafe 类的本地 CAS 方法；
+- state 方法通常用于当前正持有锁的线程对 state 变量进行修改，不存在竞争，是线程安全的，所以此处没必要用 CAS 保证原子性，修改的性能更重要。
 
 
 
