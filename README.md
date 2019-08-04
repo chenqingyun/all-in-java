@@ -88,7 +88,7 @@ All In Java
 
 - [垃圾回收机制：如何判断对象是否存活？垃圾收集算法？垃圾收集器？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6.md)
 
-- 如何减少 GC 开销？Major GC 和 Minor GC 频繁如何解决？什么时候可能会触发 STW 的 Full GC ？
+- [如何减少 GC 开销？Major GC 和 Minor GC 频繁如何解决？什么时候可能会触发 STW 的 Full GC ？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6.md#%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91-gc-%E5%BC%80%E9%94%80)
 
 - [类加载机制？双亲委派模型？为什么使用双亲委派模型？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md)
 
