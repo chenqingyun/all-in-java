@@ -81,19 +81,20 @@ All In Java
 ## Java 虚拟机
 
 - [Java 虚拟机运行时时数据区如何划分？都分别有哪些功能？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.md)
+
 - [OutOfMemoryError 异常出现原因及解决方案](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/OutOfMemoryError%20%E8%AF%A6%E8%A7%A3.md)
-- Java 内存模型？线程之间如何通信 / 如何同步？
-- [垃圾回收机制](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6.md)
-- [类加载机制](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md)
-- JVM内存模型
-  - 线程之间如何通信 / 如何同步
-  - Java 类加载流程(加载 验证 初始化 使用 销毁)，类加载器(http://ifeve.com/jvm-classloader/)
-  -  （例如jdbc等的加载不同的）
-- 解释一下双亲委派模型，JDK 中的所有的类加载都遵循双亲委派模型吗？为什么使用双亲委派模型？
-- 频繁老年代回收怎么分析解决？
-- Java内存泄露的问题调查定位：jmap，jstack的使用等等
 
+- [Java 内存模型？线程之间如何通信 / 如何同步？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md#%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1)
 
+- [垃圾回收机制：如何判断对象是否存活？垃圾收集算法？垃圾收集器？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6.md)
+
+- 如何减少 GC 开销？Major GC 和 Minor GC 频繁如何解决？什么时候可能会触发 STW 的 Full GC ？
+
+- [类加载机制？双亲委派模型？为什么使用双亲委派模型？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md)
+
+- Java 性能调优，Java内存泄露的问题调查定位：jmap，jstack的使用等等
+
+  
 
 相关文章：
 [jvm面试都有什么问题？](https://www.zhihu.com/question/27339390)
