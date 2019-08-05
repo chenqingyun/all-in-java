@@ -92,14 +92,9 @@ All In Java
 
 - [类加载机制？双亲委派模型？为什么使用双亲委派模型？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6.md)
 
-- Java 性能调优，Java内存泄露的问题调查定位：jmap，jstack的使用等等
+- [Java 性能调优，Java内存泄露的问题调查定位：jstack，jstat，jmap 的使用等等](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/JVM%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.md)
 
   
-
-相关文章：
-[jvm面试都有什么问题？](https://www.zhihu.com/question/27339390)
-
-
 
 ## Redis
 
