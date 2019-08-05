@@ -55,7 +55,7 @@ RDB 持久化功能所生成的 RDB 文件是一个经过压缩的二进制文�
 
 ### AOF 原理
 
-AOF (Append Only File) 持久化，只追加式文件持久化。AOF 持久化是将 Redis 服务器所执行的写命令保存到 AOF 日志中。当 Redis 服务器重启时会载入和执行保存在 AOF 日志文件中的命令来还原服务器关闭之前的数据。
+AOF (Append Only File) 持久化，只追加式文件持久化。AOF 持久化是将 Redis 服务器所执行的写命令保存到 AOF 日志中。**当 Redis 服务器重启时会载入和执行保存在 AOF 日志文件中的命令来还原服务器关闭之前的数据**。**所以 AOF 主要就是解决持久化的实时性**。
 
 
 
@@ -63,11 +63,14 @@ AOF (Append Only File) 持久化，只追加式文件持久化。AOF 持久化�
 
 AOF 持久化功能的实现分为「 命令追加 ( append)  」，「 文件写入 」，「 文件同步 ( sync ) 」三个步骤。
 
-- 命令追加： Redis 服务器在收到客户端的写命令时，会先执行命令，再将写命令追加到服务器的 aof_buf 缓冲区末尾。
-- 将 aof_buf 缓冲区的内容写入和保存到 AOF 文件中。通过配置 「 appendfsync 」选项来配置 AOF 文件同步频率
-  - appendfsync always：每个 Redis 写命令都写入和同步到 AOF 文件。可以将数据丢失减少到最少，但会严重降低 Redis 的速度。
-  - appendfsync everysec：将 aof_buf 缓冲区中的所有内容写入到 AOF 文件，但是每秒执行一次同步，并且这个同步操作是由一个线程专门负责的。这种策略最多只会丢失一秒之内产生的数据，一般使用这种策略。
-  - appendfsync no：所有写命令写入到 AOF 文件，但不对 AOF 文件进行同步，何时同步由操作系统决定。这种同步方式一般不会对 Redis 性能造成影响，但系统崩溃会导致 Redis 服务器丢失不定数量的数据。另外，如果缓冲区被写满，将会阻塞 Redis 写入操作，并导致 Redis 处理命令请求的速度变慢。
+1. 命令追加： Redis 服务器在收到客户端的写命令时，会先执行命令，再将写命令追加到服务器的 aof_buf 缓冲区末尾。
+
+2. 将 aof_buf 缓冲区的内容写入和保存到 AOF 文件中。通过配置 「 appendfsync 」选项来配置 AOF 文件同步频率
+   - appendfsync always：每个 Redis 写命令都写入和同步到 AOF 文件。可以将数据丢失减少到最少，但会严重降低 Redis 的速度。
+   - appendfsync everysec：将 aof_buf 缓冲区中的所有内容写入到 AOF 文件，但是每秒执行一次同步，并且这个同步操作是由一个线程专门负责的。这种策略最多只会丢失一秒之内产生的数据，一般使用这种策略。
+   - appendfsync no：所有写命令写入到 AOF 文件，但不对 AOF 文件进行同步，何时同步由操作系统决定。这种同步方式一般不会对 Redis 性能造成影响，但系统崩溃会导致 Redis 服务器丢失不定数量的数据。另外，如果缓冲区被写满，将会阻塞 Redis 写入操作，并导致 Redis 处理命令请求的速度变慢。
+
+
 
 #### 重写/压缩 AOF 文件
 
@@ -86,8 +89,9 @@ Redis 提供了「 BGREWRITEAOF 」命令，这个命令会通过移除 AOF 文�
 相关文章：
 
 - [Redis持久化](https://segmentfault.com/a/1190000002906345)
-
 - [一文看懂Redis的持久化原理](https://juejin.im/post/5b70dfcf518825610f1f5c16#heading-5)
+
+
 
 ### 混合持久化
 

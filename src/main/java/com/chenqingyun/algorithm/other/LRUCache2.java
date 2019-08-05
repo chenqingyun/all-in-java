@@ -28,5 +28,4 @@ public class LRUCache2<K, V> extends LinkedHashMap<K, V> {
         return size() > size;
     }
 
-
 }

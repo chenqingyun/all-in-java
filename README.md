@@ -99,24 +99,21 @@ All In Java
 ## Redis
 
 - [Redis 为什么是单线程的？为什么高性能](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91.md)
-- Redis 的基本数据结构
-- Redis 热点 key？ qps 太高如何解决?
+- [Redis 的基本数据结构](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+- Redis 热点 key ？ qps 太高如何解决?
 - 介绍一下 Redis 缓存穿透(大面积访问不存在的key)？ 如何解决(拦截机制/isExists)? ; 缓存雪崩(随机失效时间/双缓存然后异步更新),动态更新
-- Redis 怎么实现分布式锁？
-- Redis 的持久化策略有几种？区别是什么?
-- 使用 Redis 的原因是什么? 为什么 redis 这么快? (纯内存，单线程无线程切换开销， io多路复用)
-- 过期删除策略(过期) -> 内存淘汰机制(内存满后): 定时删除(随机取样删除)+惰性删除  ->  maxmemory-policy:删除使用最少的/随机删除
-- Redis的数据一致性问题（分布式多节点环境 & 单机环境）？
-- redis 集群的理解，怎么动态增加或者删除一个节点，而保证数据不丢失。（一致性哈希问题）
+- [了解什么是 redis 的雪崩、穿透和击穿？Redis 崩溃之后会怎么样？系统该如何应对这种情况？如何处理 Redis 的穿透（拦截机制 / isExists）？](https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/redis-caching-avalanche-and-caching-penetration.md)
+- [Redis 怎么实现分布式锁？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%AE%9E%E7%8E%B0.md)
+- [Redis 的持久化策略有几种？区别是什么?](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6.md)
+- Redis 的数据一致性问题（分布式多节点环境 & 单机环境）？
+- [如何保证缓存与数据库的双写一致性？](https://mp.weixin.qq.com/s/SKXl_DXzDdHZFe5GAyMBzg)
+- Redis 集群的理解，怎么动态增加或者删除一个节点，而保证数据不丢失。（一致性哈希问题）
 - Redis的并发竞争问题如何解决
-- 了解Redis事务的CAS操作吗
-- 缓存机器增删如何对系统影响最小，一致性哈希的实现
-- 缓存穿透的解决办法
-- redis集群，高可用，原理
-- mySQL里有2000w数据，redis中只存20w的数据，如何保证redis中的数据都是热点数据
-- 用Redis和任意语言实现一段恶意登录保护的代码，限制1小时内每用户Id最多只能登录5次
-- redis的数据淘汰策略
-
+- [Redis 事务及 CAS ？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E4%BA%8B%E5%8A%A1.md)
+- redis 集群，高可用，原理
+- MySQL 里有 2000w 数据，redis 中只存 20w 的数据，如何保证 redis 中的数据都是热点数据
+- 用 Redis 和任意语言实现一段恶意登录保护的代码，限制1小时内每用户Id最多只能登录5次
+- [Redis 过期删除策略和内存淘汰策略](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E8%BF%87%E6%9C%9F%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5%E5%92%8C%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5.md)
 - [Redis分布式锁如何续期](https://juejin.im/post/5d122f516fb9a07ed911d08c?utm_source=gold_browser_extension#comment)
 
 
@@ -124,8 +121,6 @@ All In Java
 
 相关文章：
 - [天下无难试之Redis面试题刁难大全](https://zhuanlan.zhihu.com/p/32540678)
-
-- [经典面试题：如何保证缓存与数据库的双写一致性？](https://mp.weixin.qq.com/s/SKXl_DXzDdHZFe5GAyMBzg)
 
 - [面试中关于Redis的问题看这篇就够了](https://juejin.im/post/5ad6e4066fb9a028d82c4b66#comment)
 
