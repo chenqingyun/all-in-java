@@ -3,7 +3,7 @@
 ### 目录
 
 - [什么是 IoC？](#什么是-ioc)
-- [什么是 Spring 容器？](什么是-spring-容器)
+- [什么是 Spring 容器？](#什么是-spring-容器)
 - [ApplicationContext 和 BeanFactory 的区别？](#applicationContext-和-beanFactory-的区别)
 - [IoC 实现原理](#ioc-实现原理)
   - [创建 Spring 容器](#创建-spring-容器)
@@ -51,7 +51,7 @@ Spring 容器通过 DI 管理构成应用的组件，通过一个配置文件描
 
 
 
-**ApplicationContext 和 BeanFactory 的区别？**
+#### ApplicationContext 和 BeanFactory 的区别？
 
 - BeanFactory 是 Spring 框架的基础设施，面向 Spring 本身，ApplicationContext 面向使用 Spring 框架的使用者，几乎所有的应用场合我们都直接使用 ApplicationContext 而非底层的 BeanFactory。
 - BeanFactory 采取**延迟加载**，第一次调用 getBean() 方法时才会初始化 Bean，ApplicationContext 是加载完 applicationContext.xml 时，就创建具体的 Bean 对象。（**只对 BeanDefition 中描述为是单例的 bean，才进行饿汉式加载**）。
