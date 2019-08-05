@@ -6,10 +6,13 @@
 - [什么是 Spring 容器？](什么是-spring-容器)
 - [ApplicationContext 和 BeanFactory 的区别？](#applicationContext-和-beanFactory-的区别)
 - [IoC 实现原理](#ioc-实现原理)
-- [IoC 有什么好处？](ioc-有什么好处)
+  - [创建 Spring 容器](#创建-spring-容器)
+  - [装配 Bean](#装配-bean)
 - [Bean 的生命周期](#bean-的生命周期)
+- [BeanPostProcessor](#BeanPostProcessor)
 - [Bean 的作用域](#bean-的作用域)
 - [Spring 中的单例 Bean 是线程安全的吗](#spring-中的单例-bean-是线程安全的吗)
+- [IoC 有什么好处？](ioc-有什么好处)
 
 
 
@@ -63,7 +66,7 @@ IoC 是一种思想，DI（Dependency Injection，依赖注入）是实现 IoC �
 
 
 
-#### 创建 Spring容器
+#### 创建 Spring 容器
 
 Spring 容器的创建是通过 ApplicationContext 的实现类加载 applicationContext.xml 配置文件完成的。
 
@@ -154,20 +157,13 @@ Spring 提供了几种 Bean 装配机制：
 
 ![image](https://user-images.githubusercontent.com/19634532/61205279-33b90180-a722-11e9-9a01-f23ebf3c497a.png)
 
-**总的，简单来说：加载 Spring 配置信息；然后解析配置文件，配置文件中每一个<bean> 解析成一个 BeanDefinition 对象，并保存到 Bean 定义注册表中；容器扫描注册表中的 BeanDefinition 对象并加工处理，然后实例化 Bean，通过反射机制完成 Bean 属性的注入工作，最后装配出准备就绪的 Bean 实例；将 Bean 实例放到 Spring 容器中提供的一个 HashMap 实现的 Bean 的缓存器，以 beanName 为键保存在这个HashMap 中。**
+**总的，简单来说：加载 Spring 配置信息；然后解析配置文件，配置文件中每一个<bean> 解析成一个 BeanDefinition 对象，并保存到 Bean 定义注册表中；容器扫描注册表中的 BeanDefinition 对象并加工处理，然后实例化 Bean，通过反射机制完成 Bean 属性的注入工作，利用实现了 BeanPostProcessor 的 Bean 后置处理器对 Bean 进行后续加工，最后装配出准备就绪的 Bean 实例；将 Bean 实例放到 Spring 容器中提供的一个 HashMap 实现的 Bean 的缓存器，以 beanName 为键保存在这个HashMap 中。**
 
 
 
 [Spring IOC原理总结](https://zhuanlan.zhihu.com/p/29344811?utm_source=wechat_session&utm_medium=social&utm_oi=803254883036831744)
 
 
-
-### IoC 有什么好处？
-
-IoC 的思想最核心的地方在于，资源不由使用资源的双方管理，而由不使用资源的第三方管理，这可以带来很多好处。
-
-- 资源集中管理，实现资源的可配置和易管理。
-- 降低了使用资源双方的依赖程度，也就是我们说的耦合度。
 
 
 
@@ -185,9 +181,73 @@ Spring 容器中的 Bean 的生命周期由 Spring 容器控制，其生命周�
 
 singleton 类型的 Bean 如上生命周期，prototype 类型的 Bean完成实例化之后就由调用方去管理后续流程了，IoC容器不再管理。
 
-[Spring中Bean的生命周期](http://cxis.me/2017/02/12/Spring%E4%B8%ADBean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/)
 
 
+**ApplicationContext中Bean的生命周期**
+
+1. 容器根据 Bean 的定义信息进行实例化。会对 scope 为 singleton 且非懒加载的 bean 进行实例化；
+2. 使用依赖注入，Spring 按照 Bean 定义信息配置 Bean 的所有属性；
+3. 如果 Bean 实现了 BeanNameAware 接口，工厂调用 Bean 的 setBeanName() 方法传递 Bean 的 id；
+4. 如果实现了 BeanFactoryAware 接口，工厂调用 setBeanFactory() 方法传入工厂自身；
+5. 如果实现了 ApplicationContextAware 接口，会调用该接口的 setApplicationContext() 方法，传入该 Bean 的 ApplicationContext，这样该 Bean 就获得了自己所在的 ApplicationContext；
+6. 如果 Bean 实现了 BeanPostProcessor 接口，则调用 postProcessBeforeInitialization() 方法；
+7. 如果 Bean 实现了 InitializingBean 接口，则会回调该接口的 afterPropertiesSet() 方法；
+8. 如果 Bean 制定了 init-method 方法，就会调用 init-method 方法；
+9. 如果 Bean 实现了 BeanPostProcessor 接口，则调用 postProcessAfterInitialization() 方法；
+10. 现在 Bean 已经可以使用了。
+    - scope 为 singleton 的 Bean 缓存在 Spring IOC 容器中。
+    - scope 为 prototype 的 Bean 生命周期交给客户端。
+11. 销毁。
+    - 如果 Bean 实现了DisposableBean接口，destory() 方法将会被调用；
+    - 如果配置了destory-method 方法，就调用这个方法。
+
+
+
+**BeanFactory 和 ApplicationContext 不同之处：**
+
+1. BeanFactory 容器中不会调用 ApplicationContext 接口的 setApplicationContext() 方法。
+2. BeanFactory 中 BeanPostProcessor 接口必须自己通过代码手动注册。
+3. BeanFactory 容器启动的时候，不会去实例化所有 Bean，包括所有 scope 为 singleton 且非懒加载的 Bean 也是一样，而是在调用的时候去实例化。
+
+
+
+### 后置处理器：BeanPostProcessor
+
+BeanPostProcessor 是 Spring IOC 容器给我们提供的一个扩展接口
+
+```java
+public interface BeanPostProcessor {
+    // bean 初始化方法调用前被调用
+    @Nullable
+    default Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        return bean;
+    }
+    // bean 初始化方法调用后被调用
+    @Nullable
+    default Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        return bean;
+    }
+}
+```
+
+
+
+Spring 容器通过 BeanPostProcessor 给了我们一个机会对 Spring 管理的 bean 进行再加工。比如：我们可以修改 bean 的属性，可以给 bean 生成一个动态代理实例等等。一些 Spring AOP 的底层处理也是通过实现BeanPostProcessor 来执行代理包装逻辑的。
+
+
+
+BeanFactory 和 ApplicationContext 对待 bean 后置处理器稍有不同。
+
+- ApplicationContext 会自动检测在配置文件中实现了 BeanPostProcessor 接口的所有 bean，并把它们注册为后置处理器，然后在容器创建 bean 的适当时候调用它，因此部署一个后置处理器同部署其他的 bean 并没有什么区别。
+- 使用 BeanFactory 实现的时候，bean 后置处理器必须通过代码显式地去注册。
+
+
+
+应用场景：
+
+**如果我们需要在 Spring 容器完成Bean的实例化、配置和其他的初始化前后添加一些自己的逻辑处理，我们就可以定义一个或者多个 BeanPostProcessor 接口的实现，然后注册到容器中。**
+
+[Spring探秘，妙用BeanPostProcessor](https://zhuanlan.zhihu.com/p/29750396)
 
 
 
@@ -217,3 +277,14 @@ public class ServiceImpl{
 Spring 并没有对单例 Bean 进行任何多线程的封装处理。关于单例 Bean 的线程安全和并发问题需要开发者自行解决。但实际上，大部分 Spring Bean 并没有可变的状态（比如 Service 类和 DAO 类），所以在某种程度上，Spring 的单例 Bean 是线程安全的。如果你的 Bean 有多种状态（比如 View Model 对象），就需要自行保证线程安全。
 
 最容易的解决办法就是将多态 Bean 的作用域由「 singleton 」变更为「 prototype 」。
+
+
+
+
+
+### IoC 有什么好处？
+
+IoC 的思想最核心的地方在于，资源不由使用资源的双方管理，而由不使用资源的第三方管理，这可以带来很多好处。
+
+- 资源集中管理，实现资源的可配置和易管理。
+- 降低了使用资源双方的依赖程度，也就是我们说的耦合度。

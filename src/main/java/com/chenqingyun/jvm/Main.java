@@ -6,6 +6,16 @@ package com.chenqingyun.jvm;
  */
 public class Main {
     public static void main(String[] args){
-        System.out.println("hello,world");
+        String s1 = new String("abc");
+        String s2 = new String("abc");
+        String s3 = new String("hhh");
+
+        System.out.println(s1==s2);
+        String s11 = s1.intern();
+        String s22= s2.intern();
+        System.out.println(s11 == s1);
+        System.out.println(s11 ==s22);
+
+
     }
 }
