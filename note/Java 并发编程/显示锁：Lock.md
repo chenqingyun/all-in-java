@@ -121,24 +121,6 @@ public interface Lock {
 
 
 
-ReentrantLock 有两个构造器：
-
-```java
-    /**
-     * 默认构造器，创建一个非公平锁
-     */
-    public ReentrantLock() {
-        sync = new NonfairSync();
-    }
-
-    /**
-     * 可传入 fair 参数，true 表示创建公平锁，false 表示创建非公平锁
-     */
-    public ReentrantLock(boolean fair) {
-        sync = fair ? new FairSync() : new NonfairSync();
-    }
-```
-
 公平锁保障锁调度的公平性一般是以增加了线程的暂停和唤醒的可能性，即增加了上下文切换的代价的。
 
 因此，公平锁适用于持有锁时间较长或者线程申请锁的平均间隔时间较长的情形。

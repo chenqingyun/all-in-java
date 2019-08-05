@@ -49,7 +49,7 @@ private volatile int state;
 
 ##### 锁获取
 
-通过 acquire( int acquires) 方法获取同步状态，该方法对中断不敏感，也就是线程添加到队列后，后续对线程进行中断操作不会从队列中移除。
+通过 acquire( int acquires) 方法获取独占锁，该方法对中断不敏感，也就是线程添加到队列后，后续对线程进行中断操作不会从队列中移除。
 
 ```java
    public final void acquire(int arg) {
@@ -59,7 +59,7 @@ private volatile int state;
     }
 ```
 
-- 首先调用自定义同步器的实现的 tryAcquire ( int  arg) 方法尝试获取锁，原子性的更改同步状态；
+- 首先调用自定义同步器的实现的 tryAcquire ( int  arg) 方法尝试获取锁，需要原子性的更改同步状态；在tryAcquire 方法中使用了同步器提供的对 state 操作的方法，利用 compareAndSet 保证只有一个线程能够对状态进行成功修改，而没有成功修改的线程将进入 sync 队列排队。
 
 - 如果获取失败，将调用 addWaiter(Node mode) 方法将当前线程构造成一个节点通过 CAS 操作加入到同步队列的尾部；
 
@@ -141,6 +141,10 @@ acquireQueued(final Node node, int arg) 方法的实现：
 
 独占式获取流程：
 <div align="center"><img src="https://user-images.githubusercontent.com/19634532/60482316-8c6cb100-9cc3-11e9-832c-1b32f8ff335b.png" width= "500px"></div>
+
+
+
+
 ##### 锁释放
 
 在锁实例的 unlock() 方法的实现中，使用了同步器的 release( int arg ) 方法来释放锁，在释放之后会唤醒其后继节点，进而使后继节点重新尝试获取锁。
