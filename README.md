@@ -9,19 +9,35 @@ All In Java
 - [Java 基础](#java-基础)
 - [Java 并发编程](#java-并发编程)
 - [Java 虚拟机](#java-虚拟机)
-- [Redis](#redis)
 - [MySQL](#mysql)
+- [Redis](#redis)
+- [Elasticsearch](#elasticsearch)
+- [框架](#框架)
+  - [Spring，SpringMVC](#spring，springmvc)
+  - [MyBatis](#MyBatis)
+- [分布式架构](#分布式架构)
+  - [分布式架构常见的要解决的技术问题](#分布式架构常见的要解决的技术问题)
+  - [ZooKeeper](#zookeeper)
+  - [Dubbo](#dubbo)
+  - [RabbitMQ](#rabbitmq)
+- [设计模式](#设计模式)
+- [算法和数据结构](#算法和数据结构)
+- [Linux](#linux)
+- [项目经验](#项目经验)
+- [参考](#参考)
 - [面经](#面经)
 
 
 
-> 以下内容有些只是简单的知识性总结，鞭辟入里的分析 TODO。
+
+
+> 以下内容有些只是简单的知识性总结，更为深入的分析 TODO。
 
 
 
 ## Java 基础
 
-- [Java 异常处理机制？如何处理异常？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/Java%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.md)
+- [Java 异常有哪些类型？如何处理异常？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/Java%20%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6.md)
 
 - [ArrayList 实现原理？如何扩容？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ArrayList%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)
 
@@ -99,38 +115,6 @@ All In Java
   
 
 
-## Redis
-
-- [Redis 为什么是单线程的？为什么高性能](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91.md)
-- [Redis 的基本数据结构](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
-- Redis 热点 key ？ qps 太高如何解决?
-- 介绍一下 Redis 缓存穿透(大面积访问不存在的key)？ 如何解决(拦截机制/isExists)? ; 缓存雪崩(随机失效时间/双缓存然后异步更新),动态更新
-- [了解什么是 redis 的雪崩、穿透和击穿？Redis 崩溃之后会怎么样？系统该如何应对这种情况？如何处理 Redis 的穿透（拦截机制 / isExists）？](https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/redis-caching-avalanche-and-caching-penetration.md)
-- [Redis 怎么实现分布式锁？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%AE%9E%E7%8E%B0.md)
-- [Redis 的持久化策略有几种？区别是什么?](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6.md)
-- Redis 的数据一致性问题（分布式多节点环境 & 单机环境）？
-- [如何保证缓存与数据库的双写一致性？](https://mp.weixin.qq.com/s/SKXl_DXzDdHZFe5GAyMBzg)
-- Redis 集群的理解，怎么动态增加或者删除一个节点，而保证数据不丢失。（一致性哈希问题）
-- Redis的并发竞争问题如何解决
-- [Redis 事务及 CAS ？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E4%BA%8B%E5%8A%A1.md)
-- redis 集群，高可用，原理
-- MySQL 里有 2000w 数据，redis 中只存 20w 的数据，如何保证 redis 中的数据都是热点数据
-- 用 Redis 和任意语言实现一段恶意登录保护的代码，限制1小时内每用户Id最多只能登录5次
-- [Redis 过期删除策略和内存淘汰策略](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E8%BF%87%E6%9C%9F%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5%E5%92%8C%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5.md)
-- [Redis分布式锁如何续期](https://juejin.im/post/5d122f516fb9a07ed911d08c?utm_source=gold_browser_extension#comment)
-
-
-
-
-相关文章：
-- [天下无难试之Redis面试题刁难大全](https://zhuanlan.zhihu.com/p/32540678)
-
-- [面试中关于Redis的问题看这篇就够了](https://juejin.im/post/5ad6e4066fb9a028d82c4b66#comment)
-
-- https://github.com/doocs/advanced-java?utm_source=gold_browser_extension#%E7%BC%93%E5%AD%98
-
-
-
 ## MySQL 
 
 - [基础架构：一条 SELECT 语句是如何执行的](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/MySQL%20%E9%80%BB%E8%BE%91%E6%9E%B6%E6%9E%84%EF%BC%9A%E4%B8%80%E6%9D%A1%20SELECT%20%20%E8%AF%AD%E5%8F%A5%E7%9A%84%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B.md)
@@ -166,7 +150,43 @@ All In Java
 
 
 
-## Spring
+## Redis
+
+- [Redis 为什么是单线程的？为什么高性能](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%8D%95%E7%BA%BF%E7%A8%8B%E4%B8%8E%E9%AB%98%E5%B9%B6%E5%8F%91.md)
+- [Redis 的基本数据结构](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%9F%BA%E7%A1%80%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84.md)
+- Redis 热点 key ？ qps 太高如何解决?
+- 介绍一下 Redis 缓存穿透(大面积访问不存在的key)？ 如何解决(拦截机制/isExists)? ; 缓存雪崩(随机失效时间/双缓存然后异步更新),动态更新
+- [了解什么是 redis 的雪崩、穿透和击穿？Redis 崩溃之后会怎么样？系统该如何应对这种情况？如何处理 Redis 的穿透（拦截机制 / isExists）？](https://github.com/doocs/advanced-java/blob/master/docs/high-concurrency/redis-caching-avalanche-and-caching-penetration.md)
+- [Redis 怎么实现分布式锁？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81%E7%9A%84%E6%AD%A3%E7%A1%AE%E5%AE%9E%E7%8E%B0.md)
+- [Redis 的持久化策略有几种？区别是什么?](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6.md)
+- Redis 的数据一致性问题（分布式多节点环境 & 单机环境）？
+- [如何保证缓存与数据库的双写一致性？](https://mp.weixin.qq.com/s/SKXl_DXzDdHZFe5GAyMBzg)
+- Redis 集群的理解，怎么动态增加或者删除一个节点，而保证数据不丢失。（一致性哈希问题）
+- Redis的并发竞争问题如何解决
+- [Redis 事务及 CAS ？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E4%BA%8B%E5%8A%A1.md)
+- redis 集群，高可用，原理
+- MySQL 里有 2000w 数据，redis 中只存 20w 的数据，如何保证 redis 中的数据都是热点数据
+- 用 Redis 和任意语言实现一段恶意登录保护的代码，限制1小时内每用户Id最多只能登录5次
+- [Redis 过期删除策略和内存淘汰策略](https://github.com/chenqingyun/all-in-java/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/Redis%20%E8%BF%87%E6%9C%9F%E5%88%A0%E9%99%A4%E7%AD%96%E7%95%A5%E5%92%8C%E5%86%85%E5%AD%98%E6%B7%98%E6%B1%B0%E7%AD%96%E7%95%A5.md)
+- [Redis分布式锁如何续期](https://juejin.im/post/5d122f516fb9a07ed911d08c?utm_source=gold_browser_extension#comment)
+
+
+
+相关文章：
+
+- [天下无难试之Redis面试题刁难大全](https://zhuanlan.zhihu.com/p/32540678)
+- [面试中关于Redis的问题看这篇就够了](https://juejin.im/post/5ad6e4066fb9a028d82c4b66#comment)
+- https://github.com/doocs/advanced-java?utm_source=gold_browser_extension#%E7%BC%93%E5%AD%98
+
+
+
+## Elasticsearch
+
+
+
+## 框架
+
+### Spring，SpringMVC
 
 - [对 IOC 的理解？IOC 初始化流程？](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/Spring%20IoC.md)
 - [介绍一下 Spring 中的容器？BeanFactory 和 ApplicationContext 的联系和区别](https://github.com/chenqingyun/all-in-java/blob/master/note/Spring/Spring%20IoC.md#%E4%BB%80%E4%B9%88%E6%98%AF-spring-%E5%AE%B9%E5%99%A8)
@@ -180,7 +200,7 @@ All In Java
 
 
 
-## MyBatis
+### MyBatis
 
 - [MyBatis 只写了接口为啥就能执行 SQL ？SqlSession 执行流程？](https://github.com/chenqingyun/all-in-java/blob/master/note/MyBatis/MyBatis%20%E5%8F%AA%E5%86%99%E4%BA%86%E6%8E%A5%E5%8F%A3%E4%B8%BA%E5%95%A5%E5%B0%B1%E8%83%BD%E6%89%A7%E8%A1%8C%20SQL.md)
 
@@ -315,6 +335,12 @@ All In Java
 
 
 
+## 参考
+
+- [doocs / advanced-java](https://github.com/doocs/advanced-java)
+
+
+
 ## 面经
 
 - [【斩获7枚offer，入职阿里平台事业部】横扫阿里、美团、京东、 去哪儿之后，我写下了这篇面经！](https://mp.weixin.qq.com/s/BXGUU2VTP_5u4qhgHGlGIg)
@@ -328,8 +354,4 @@ All In Java
 - [字节跳动、腾讯后台开发面经分享(2019.5)](https://juejin.im/post/5cf7ea91e51d4576bc1a0dc2?utm_source=gold_browser_extension)
 
 
-
-## GitHub 仓库
-
-- [doocs / advanced-java](https://github.com/doocs/advanced-java)
 
