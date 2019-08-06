@@ -94,7 +94,10 @@ All In Java
 
 - [Java 性能调优，Java内存泄露的问题调查定位：jstack，jstat，jmap 的使用等等](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E8%99%9A%E6%8B%9F%E6%9C%BA/JVM%20%E6%80%A7%E8%83%BD%E8%B0%83%E4%BC%98.md)
 
+- [理解String.intern()](https://blog.csdn.net/soonfly/article/details/70147205)
+
   
+
 
 ## Redis
 
@@ -155,7 +158,6 @@ All In Java
 - MySql 的主从实时备份同步的配置，以及原理(从库读主库的binlog)，读写分离
 - 事物的四个特性，以及各自的特点（原子、隔离）等等，项目怎么解决这些问题
 - 数据库会死锁吗，举一个死锁的例子，mysql怎么解决死锁
-- MySQL InnoDB存储的文件结构
 - 索引树是如何维护的？
 - 数据库自增主键可能的问题
 - 数据库锁表的相关处理
