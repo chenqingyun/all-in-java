@@ -79,6 +79,8 @@ ThreadPoolExecutor 类提供了四个构造方法用来创建线程池，实际�
   - SynchronousQueue：一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于 LinkedBlockingQueue，静态工厂方法 Executors.newCachedThreadPool() 使用了这个队列。
   - PriorityBlockingQueue：一个具有优先级的无限阻塞队列。
 
+  [并发容器之 BlockingQueue 详解](https://juejin.im/post/5aeebd02518825672f19c546)
+
 - **threadFactory：用来创建线程的工厂**。通过 Executors.defaultThreadFactory() 创建默认的线程工厂。可以通过线程工厂给每个新建的线程设置有意义的名字。可以使用开源框架 「 guava 」提供的 ThreadFactoryBuilder 给线程设置名字，代码如下：
 
   ```java
