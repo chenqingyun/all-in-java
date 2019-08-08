@@ -1,8 +1,8 @@
 package com.chenqingyun;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import com.chenqingyun.designpattern.strategy.*;
+
+import java.util.*;
 
 /**
  * @author chenqingyun
@@ -18,5 +18,16 @@ public class Main {
 
         Collections.sort(list);
         System.out.println(list);
+
+        Map<String , Strategy> map = new HashMap<>();
+        map.put("add",new AddOperation());
+        map.put("divide",new DivideOperation());
+
+        StrategyHandler handler = new StrategyHandler(map.get("add"));
+        handler.execute(1,3);
+
+        handler.setStrategy(map.get("divide"));
+        handler.execute(4,2);
+
     }
 }

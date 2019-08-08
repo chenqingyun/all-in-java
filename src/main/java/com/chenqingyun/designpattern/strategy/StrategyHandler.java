@@ -7,6 +7,12 @@ package com.chenqingyun.designpattern.strategy;
 public class StrategyHandler {
     private Strategy strategy;
 
+    public StrategyHandler(){
+
+    }
+    public StrategyHandler(Strategy strategy){
+        this.strategy = strategy;
+    }
     public void setStrategy(Strategy strategy) {
         this.strategy = strategy;
     }
