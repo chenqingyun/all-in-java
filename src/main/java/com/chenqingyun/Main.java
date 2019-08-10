@@ -28,6 +28,5 @@ public class Main {
 
         handler.setStrategy(map.get("divide"));
         handler.execute(4,2);
-
     }
 }
