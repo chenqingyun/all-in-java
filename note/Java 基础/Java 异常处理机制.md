@@ -18,7 +18,6 @@
 
 <div align="center"><img src="https://upload-images.jianshu.io/upload_images/3297676-fbb20e337e8a4def.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width= "800px"></div>
 
-
 - Error：描述 Java 运行时系统的内部错误和资源耗尽错误，无法人工处理。
 
 - RuntimeException：由程序错误导致的异常，发生该错误，说明代码有问题。

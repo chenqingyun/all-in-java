@@ -13,7 +13,7 @@ All In Java
 - [Redis](#redis)
 - [Elasticsearch](#elasticsearch)
 - [框架](#框架)
-  - [Spring，SpringMVC](#spring，springmvc)
+  - [Spring，SpringMVC](#springspringmvc)
   - [MyBatis](#MyBatis)
 - [分布式架构](#分布式架构)
   - [分布式架构常见的要解决的技术问题](#分布式架构常见的要解决的技术问题)
@@ -48,6 +48,8 @@ All In Java
 - [HashMap 的 底层数结构？get / put / values 方法实现过程？扩容机制？如何解决 hash 碰撞？HashTable 和 HashMap的区别？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/HashMap%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md#hashmap-%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90)
 
 - [ConcurrentHashMap 数据结构？实现原理？与 HashMap 比较？](https://github.com/chenqingyun/all-in-java/blob/master/note/Java%20%E5%9F%BA%E7%A1%80/ConcurrentHashMap%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%8E%9F%E7%90%86.md)
+
+- 基本数据类型原子类实现原理？（volatile + CAS）
 
   
 
@@ -214,28 +216,25 @@ All In Java
 
 ## 分布式架构
 
-- [面试官们“爱不释手”的分布式系统架构到底是个什么鬼？](https://juejin.im/post/5d00ea3b6fb9a07eec59c332?utm_source=gold_browser_extension)
-- 如何实现分布式缓存
-- [对分布式事务及两阶段提交、三阶段提交的理解](https://www.cnblogs.com/binyue/p/3678390.html)
-- 服务器雪崩是怎么造成的？之前有这样的经历吗？怎么防备？
-- 高并发架构的设计思路
-- session 和 cookie 的区别和联系，session的生命周期，多个服务部署时session管理。
-- redis/zk节点宕机如何处理
-- 数据的垂直拆分水平拆分。
-
 
 
 ### 分布式架构常见的要解决的技术问题
 
+- [面试官们“爱不释手”的分布式系统架构到底是个什么鬼？](https://juejin.im/post/5d00ea3b6fb9a07eec59c332?utm_source=gold_browser_extension)
 - 分布式会话
+  - session 和 cookie 的区别和联系，session的生命周期，多个服务部署时session管理。
 - 分布式锁
 - 分布式事务
+  - https://juejin.im/post/5b5a0bf9f265da0f6523913b
+  - [[对分布式事务及两阶段提交、三阶段提交的理解](https://www.cnblogs.com/binyue/p/3678390.html)](https://www.cnblogs.com/binyue/p/3678390.html)
 - 分布式搜索
 - 分布式缓存
 - 分布式消息队列
 - 统一配置中心
 - 分布式存储，数据库分库分表
 - [服务雪崩、限流、熔断、降级等](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/%E6%9C%8D%E5%8A%A1%E9%9B%AA%E5%B4%A9%E3%80%81%E7%86%94%E6%96%AD%E3%80%81%E9%99%8D%E7%BA%A7%E5%92%8C%E9%99%90%E6%B5%81.md)
+- redis / zk 节点宕机如何处理
+- 高并发架构的设计思路
 
 
 
@@ -259,7 +258,7 @@ All In Java
 - [Dubbo 服务监控](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E6%9C%8D%E5%8A%A1%E7%9B%91%E6%8E%A7.md)
 - [如何基于 dubbo 进行服务治理、服务降级、失败重试以及超时重试？](https://github.com/doocs/advanced-java/blob/master/docs/distributed-system/dubbo-service-management.md)
 - [Dubbo 协议](http://dubbo.apache.org/zh-cn/docs/user/references/protocol/dubbo.html) 
-- [描述一个服务从发布到被消费的详细过程，服务注册、服务暴露、服务发现、服务调用](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E6%9A%B4%E9%9C%B2%E3%80%81%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8.md#dubbo-%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%E6%9A%B4%E9%9C%B2%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8)
+- [描述一个服务从发布到被消费的详细过程，服务注册、服务暴露、服务发现、服务调用](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E3%80%81%E6%9C%8D%E5%8A%A1%E6%9A%B4%E9%9C%B2%E3%80%81%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0%E5%92%8C%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8.md)
 - [Dubbo 的负载均衡](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1.md)
 - [Dubbo 集群容错策略](http://dubbo.apache.org/zh-cn/docs/user/demos/fault-tolerent-strategy.html)
 - [Dubbo 的 SPI 思想是什么？](https://github.com/chenqingyun/all-in-java/blob/master/note/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%B6/Dubbo/Dubbo%20SPI%20%E6%9C%BA%E5%88%B6.md)
