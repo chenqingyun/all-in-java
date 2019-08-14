@@ -78,16 +78,29 @@ FutureAdapter 是一个适配器，用于将 Dubbo 中的 ResponseFuture 与 JDK
 
 
 
+RPC 调用在客户端（Consumer）触发，基配置文件中会有如下的定义：
+
+```xml
+<dubbo:reference id="xxxService" interface="xxx.xxx.Service" />
+```
+
+
+
 #### 发送请求
 
 同步调用模式下，服务消费方是如何发送调用请求的？
 
-1. 维护一个引用计数变量 referenceCount，心跳检测；
-2. 默认情况下，Dubbo 使用 Netty 作为底层的通信框架。调用 NettyChannel 的 send 方法。
-3. send 方法中，sent 参数决定是否等待请求消息发出，sent = true 等待消息发出，消息发送失败将抛出异常，sent = false 不等待消息发出，将消息放入 IO 队列，即刻返回。sent 的值源于 `<dubbo:method sent="true/false" />` 中 sent 的配置值，默认情况下都是 false。NettyChannel 中有 channel 属性，这个 channel 是 Netty 框架中的组件，负责客户端和服务端链路上的消息传递，channel.write 把请求消息写入，这个请求消息就是封装了调用接口、方法、参数等信息的 Request 对象。这里的 IO 模型是非阻塞的，线程不用同步等待所有消息写完，而是直接返回；
-4. 调用 Netty 框架的 IO 事件之后会触发 Netty 框架的 IO 事件处理链。
+1. 为服务接口生成一个代理对象，由于这个代理存在于本地，因此就可以像本地 bean 一样调用该服务，具体的通信过程由代理负责。
 
-在 Netty 中，出站数据在发出之前还需要进行编码操作。
+2. 根据调用的服务方法名以及传入的参数构建 RpcInvocation 对象，传入 MockClusterInvoker 的 invoke 方法。
+
+3. 在消费者初始化时，接口方法和提供者 Invoker 对应关系保存在 RegistryDirectory 的methodInvokerMap中，**通过调用的方法名称（或方法名称+第一个参数）找到该方法对应的提供者 invoker 列表**，如注册中心设置了路由规则，对这些 invoker 根据路由规则进行过滤。**读取到所有符合条件的服务提供者 invoker 之后，由 LoadBalance 组件执行负载均衡，从中挑选一个 invoker 进行调用**。
+
+4. 将请求信息封装成一个 Request 对象，然后再将该对象传给 NettyClient 的 send 方法，进行后续的调用。默认情况下，Dubbo 使用 Netty 作为底层的通信框架。
+
+   > send 方法中，sent 参数决定是否等待请求消息发出，sent = true 等待消息发出，消息发送失败将抛出异常，sent = false 不等待消息发出，将消息放入 IO 队列，即刻返回。sent 的值源于 `<dubbo:method sent="true/false" />` 中 sent 的配置值，默认情况下都是 false。NettyChannel 中有 channel 属性，这个 channel 是 Netty 框架中的组件，负责客户端和服务端链路上的消息传递，channel.write 把请求消息写入，这个请求消息就是封装了调用接口、方法、参数等信息的 Request 对象。这里的 IO 模型是非阻塞的，线程不用同步等待所有消息写完，而是直接返回；调用 Netty 框架的 IO 事件之后会触发 Netty 框架的 IO 事件处理链。
+
+5. 在 Netty 中，出站数据在发出之前还需要进行编码操作。
 
 
 

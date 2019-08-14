@@ -65,7 +65,7 @@ CGLib 采用底层的字节码技术，可以为一个类创建子类，在子�
 2. 当一个 bean 加载到 Spring 中时，会触发自动代理器中的 bean 后置处理；
 3. bean 后置处理，会先扫描 bean 中所有的 Advisor；
 4. 然后用这些 Adviosr 和其他参数构建 ProxyFactory；
-5. ProxyFactory 会根据配置和目标对象的类型寻找代理的方式（JDK动态代理或CGLIG代理）；
+5. ProxyFactory 会根据配置和目标对象的类型寻找代理的方式（JDK 动态代理或 CGLIG 代理）；
 6. 然后代理出来的对象放回 context 中，完成 Spring AOP 代理。
 
 

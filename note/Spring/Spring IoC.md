@@ -245,7 +245,7 @@ BeanFactory 和 ApplicationContext 对待 bean 后置处理器稍有不同。
 
 应用场景：
 
-**如果我们需要在 Spring 容器完成Bean的实例化、配置和其他的初始化前后添加一些自己的逻辑处理，我们就可以定义一个或者多个 BeanPostProcessor 接口的实现，然后注册到容器中。**
+**如果我们需要在 Spring 容器完成 Bean 的实例化、配置和其他的初始化前后添加一些自己的逻辑处理，我们就可以定义一个或者多个 BeanPostProcessor 接口的实现，然后注册到容器中。**
 
 [Spring探秘，妙用BeanPostProcessor](https://zhuanlan.zhihu.com/p/29750396)
 

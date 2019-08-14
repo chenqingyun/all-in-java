@@ -51,6 +51,12 @@ All In Java
 
 - 基本数据类型原子类实现原理？（volatile + CAS）
 
+- == 跟 equals 有什么区别？
+
+- Object 有哪些方法？
+
+  
+  
   
 
 

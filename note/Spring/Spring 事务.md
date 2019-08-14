@@ -64,16 +64,60 @@ TransactionDefinition 接口中定义了五个表示隔离级别的常量：
 
 
 
+#### @Transactional 注解管理事务的实现步骤
+
+1. 在 xml 配置文件中添加事务配置信息，让 Spring 容器对添加 @Transactional 注解的 Bean 进行加工处理，以织入事务管理切面；
+
+   ```xml
+       <!-- 使用@Transactional进行声明式事务管理需要声明下面这行 -->
+       <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+       <!-- 事务管理 -->
+       <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+           <property name="dataSource" ref="dataSource"/>
+           <!--提交失败是否回滚-->
+           <property name="rollbackOnCommitFailure" value="true"/>
+       </bean>
+   ```
+
+2. 将 @Transactional 注解添加到合适的方法上，还可以设置合适的属性信息。也可以添加到类级别上。当把@Transactional 注解放在类级别时，表示所有该类的公共方法都配置相同的事务属性信息。
+
+
+
+如果在接口、实现类或方法上都指定了@Transactional 注解，则优先级顺序为方法 > 实现类 > 接口；
+
+Spring 建议在业务的实现类上添加 @Transactional 注解。因为注解不能被继承，所以在接口上添加注解不会被实现类继承，那么实现类不会添加事务增强。如果使用 JDK 代理机制（基于接口的代理）是没问题；而使用 CGLIB 代理（继承）机制时就会遇到问题，因为其使用基于类的代理而不是接口。
+
+
+
+
+
 ### 如何实现事务管理
 
 Spring 使用 **AOP**（面向切面编程）来实现**声明式事务**。
 
-声明式事务的实现就是通过环绕增强的方式，在目标方法执行之前开启事务，在目标方法执行之后提交或者回滚事务。
-
-> 环绕增强：在目标方法执行前后都执行增强。
+声明式事务的实现就是通过**环绕增强**（在目标方法执行前后都执行增强）的方式，在目标方法执行之前开启事务，在目标方法执行之后提交或者回滚事务。
 
 
 
-[Spring 事务原理一探](https://zhuanlan.zhihu.com/p/54067384)
+1. Spring 容器初始化 Bean，在后置处理器后处理方法中生成代理对象；
+2. 当 Bean 方法通过代理对象调用时，会触发对应的 AOP 增强拦截器 TransactionInterceptor，将事务处理的功能编织到拦截的方法中；
 
-[Spring 源码分析：不得不重视的 Transaction 事务](https://mp.weixin.qq.com/s/8jWoraaWpeC7qiS6YGLJ_A)
+
+
+### 什么情况下事务不起作用
+
+- 在 Spring 的 AOP 代理下，只有目标方法由外部调用，目标方法才由 Spring 生成的代理对象来管理，这会造成**自调用问题**。若同一类中的其他没有 @Transactional 注解的方法内部调用有 @Transactional 注解的方法，有 @Transactional 注解的方法的事务被忽略，不会发生回滚。
+- @Transactional 只能应用到 public 方法才有效。
+- 在接口上添加注解。
+- 事务回滚异常只能为 RuntimeException 异常，而 Checked Exception 异常不回滚，捕获异常不抛出也不会回滚，但可以强制事务回滚：TransactionAspectSupport.currentTransactionStatus().isRollbackOnly()。
+- CGLib 代理的时候，final 方法不会生效。
+
+
+
+[透彻的掌握 Spring 中@transactional 的使用](https://www.ibm.com/developerworks/cn/java/j-master-spring-transactional-use/index.html)
+
+
+
+- [Spring 事务原理一探](https://zhuanlan.zhihu.com/p/54067384)
+
+- [Spring 源码分析：不得不重视的 Transaction 事务](https://mp.weixin.qq.com/s/8jWoraaWpeC7qiS6YGLJ_A)

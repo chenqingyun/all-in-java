@@ -6,19 +6,21 @@
 - [方法区和运行时常量池溢出](#方法区和运行时常量池溢出)
 - [本地直接内存溢出](#本地直接内存溢出)
 - [堆外内存溢出](#堆外内存溢出)
-- [GC回收时内存溢出](#回收时内存溢出)
+- [GC 回收时内存溢出](#gc-回收时内存溢出)
 
 ### Java 堆内存溢出
 > java.lang.OutOfMemoryError: Java heap space
 
+如果程序在申请堆内存时，没有足够的内存空间供其使用，Java 虚拟机会抛出 OutOfMemoryError 异常。
 
 
- JVM 启动参数：
 
-- 「-Xms」 设置最小堆内存
+JVM 启动参数：
 
-- 「-Xmx」 设置最大堆内存，设置一样避免堆自动扩展
-- 「-XX:+HeapDumpOnOutOfMemoryError」 可以让虚拟机在出现内存溢出异常时 Dump 出当前的内存堆转储快照以便事后分析。
+- **「 -Xms 」** 设置最小堆内存
+
+- **「 -Xmx 」** 设置最大堆内存，设置一样避免堆自动扩展
+- **「 -XX:+HeapDumpOnOutOfMemoryError 」** 可以让虚拟机在出现内存溢出异常时 Dump 出当前的内存堆转储快照以便事后分析。
 
 ```
 /**
@@ -43,23 +45,32 @@ public class HeapOOM {
 
 **原因：**
 
-- 内存泄漏（Memory Leak）：指由于疏忽或错误造成程序未能释放已经不再使用的内存，从而造成了内存的浪费。
+- **内存泄漏（Memory Leak）**：指由于疏忽或错误造成程序未能释放已经不再使用的内存，从而造成了内存的浪费。
 - 堆内存设置太小。
 - 存在过多大对象，对象生命周期过长。
 
 **解决：**
 
-先通过内存映像分析工具对 Dump 出来的堆转储快照进行分析，确认内存中的对象是否是必要的，也就是分清是内存泄露还是内存溢出。
+先通过内存映像分析工具（MAT，[JDK 自带的 jvisualvm](https://www.jianshu.com/p/8f1679d9603b)）对 Dump 出来的堆转储快照进行分析，确认内存中的对象是否是必要的，也就是分清是内存泄露还是内存溢出。
 
-- 如果是内存泄漏
+- **如果是内存泄漏**
 
-  查看泄露对象到 GC Roots 的引用链，就能查找到泄漏对象是通过怎样的路径与GC Roots 相关联并导致垃圾收集器无法自动回收它们的。掌握了泄漏对象的类型信息及 GC Roots 引用链的信息，就可以比较准确的定位出泄漏代码的位置。
+  查看泄露对象到 GC Roots 的引用链，就能查找到泄漏对象是通过怎样的路径与 GC Roots 相关联并导致垃圾收集器无法自动回收它们的。掌握了泄漏对象的类型信息及 GC Roots 引用链的信息，就可以比较准确的定位出泄漏代码的位置。
 
-- 不存在内存泄漏
+- **不存在内存泄漏**
 
   - 检查虚拟机的堆参数(-Xms 与 -Xmx ) 是否设置太小；
   - 从代码上检查是否存在某些对象生命周期过长，持有状态时间过长的情况；
-  - 检查是否存在大循环中创建对象，可在循环外创建对象引用，循环内引用到 new 的对象，循环结束后将对象引用赋值为 null。
+  - 检查是否存在大循环中创建对象。
+
+
+
+**如何避免内存泄漏、内存溢出？**
+
+- 尽量减小对象的作用域。
+- 不适用的对象引用赋值为 null。
+- 避免在循环内创建过多对象，可在循环外创建对象引用，循环内引用到 new 的对象，循环结束后将对象引用赋值为 null。
+- 避免过多创建大对象。
 
 
 
@@ -69,7 +80,7 @@ public class HeapOOM {
 >
 >java.lang.OutOfMemoryError: Unable to create new native thread
 
-设置栈容量参数「-Xss」 
+设置栈容量参数**「 -Xss 」** 。
 
 如果线程请求的栈深度大于虚拟机所允许的最大深度，将抛出 StackOverflowError 异常；
 
@@ -99,7 +110,7 @@ StackOverflowError 异常详细见文章 [StackOverflowError 详解](https://git
 
 - 减少线程数量；
 
-- 在不能减少线程数的情况下，减少堆内存和减少每个线程分配的栈容量来换取更多的线程，即通过「减少内存」的手段来解决内存溢出。 
+- 在不能减少线程数的情况下，减少堆内存和减少每个线程分配的栈容量来换取更多的线程，即通过**「 减少内存 」**的手段来解决内存溢出。 
 
 
 
@@ -109,16 +120,16 @@ StackOverflowError 异常详细见文章 [StackOverflowError 详解](https://git
 
 
 
-参数设置：「-XX:MetaspaceSize」 和 「-XX:MaxMetaspaceSize」 
+**参数设置：「 -XX:MetaspaceSize 」 和 「 -XX:MaxMetaspaceSize 」** 
 
 
 
-原因：
+**原因：**
 运行时产生大量的类
 
 
 
-解决：
+**解决：**
 
 - 将方法区的大小调大。
 - 在经常动态生成大量 Class 的应用中，需要特别注意类的回收状况。
@@ -131,7 +142,7 @@ StackOverflowError 异常详细见文章 [StackOverflowError 详解](https://git
 
 
 
-直接内存容量通过 「-XX:MaxDirectMemorySize」设定，如果不指定，与 Java 堆最大值一样。 
+**直接内存容量通过 「 -XX:MaxDirectMemorySize 」设定，如果不指定，与 Java 堆最大值一样。** 
 
 
 
@@ -149,11 +160,19 @@ https://www.raychase.net/1526
 
 
 
-### GC回收时内存溢出
+### GC 回收时内存溢出
 
 > java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 
+
+执行垃圾收集的时间比例太大，有效的运算量太小。默认情况下，如果连续多次 GC 花费的时间超过 98%，并且 GC 回收的内存少于 2%，JVM 就会抛出这个错误。
+
+
+
+**假如不抛出 GC overhead limit 错误会发生什么情况呢？**
+
+ 那就是 GC 清理的这么点内存很快会再次填满，迫使 GC 再次执行。这样就形成恶性循环，CPU 使用率一直是 100%，而 GC 却没有任何成果。系统用户就会看到系统卡死。
 
 [详解 java.lang.OutOfMemoryError: GC overhead limit exceeded 错误！](https://www.xttblog.com/?p=3347)
 
